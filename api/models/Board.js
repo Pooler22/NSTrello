@@ -6,9 +6,15 @@
 */
 
 module.exports = {
-
   attributes: {
-
+    name: {
+      type: 'string',
+      required: true
+    },
+    lists: {
+      collection: 'list',
+      via: 'owner'
+    }
   }
 };
 
