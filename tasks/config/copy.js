@@ -18,9 +18,14 @@ module.exports = function(grunt) {
 	grunt.config.set('copy', {
 		dev: {
 			files: [{
+        expand: true,
+        cwd: './node_modules/jquery/dist/',
+        src: ['jquery.js'],
+        dest: './assets/js/dependencies/'
+      },{
 				expand: true,
-				cwd: './node_modules/jquery/dist/',
-				src: ['jquery.js'],
+				cwd: './node_modules/jquery-validation/dist/',
+				src: ['jquery.validate.js'],
 				dest: './assets/js/dependencies/'
 			},{
 				expand: true,
