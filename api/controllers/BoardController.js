@@ -33,5 +33,13 @@ module.exports = {
         board: board
       });
     });
+  },
+  index: function(req,res, next){
+    Board.find(function foundBoards (err,boards) {
+      if (err) return next(err);
+      res.view({
+        boards: boards
+      });
+    });
   }
 };

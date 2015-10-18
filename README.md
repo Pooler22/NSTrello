@@ -14,3 +14,4 @@ Node + Sails
 
 [http://localhost:1337/board/show/id_number](http://localhost:1337/board/show/id_number) <- view board with "id_number"
 
+
