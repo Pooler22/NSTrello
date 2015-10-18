@@ -19,6 +19,26 @@ module.exports = function(grunt) {
 		dev: {
 			files: [{
 				expand: true,
+				cwd: './node_modules/jquery/dist/',
+				src: ['jquery.js'],
+				dest: './assets/js/dependencies/'
+			},{
+				expand: true,
+				cwd: './node_modules/bootstrap/dist/js/',
+				src: ['bootstrap.js'],
+				dest: './assets/js/dependencies/'
+			},{
+				expand: true,
+				cwd: './node_modules/bootstrap/dist/css',
+				src: ['**/*'],
+				dest: './assets/styles'
+			}, {
+				expand: true,
+				cwd: './node_modules/bootstrap/dist/fonts',
+				src: ['**/*'],
+				dest: './assets/styles/fonts'
+			},{
+				expand: true,
 				cwd: './assets',
 				src: ['**/*.!(coffee|less)'],
 				dest: '.tmp/public'
