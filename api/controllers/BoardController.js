@@ -58,5 +58,16 @@ module.exports = {
       }
       res.redirect('/board/show/' + req.param('id'));
     });
+  },
+  destroy: function(req, res, next){
+    Board.findOne(req.param('id'), function foundBoard(err, board){
+      if (err) return next(err);
+      if (!board) return next('Brak takiej tablicy.');
+
+      Board.destroy(req.param('id'), function boardDestroyed(err){
+        if (err) return next(err);
+      });
+      res.redirect('/board/')
+    });
   }
 };
