@@ -45,7 +45,7 @@ module.exports = {
   edit: function(req,res,next){
     Board.findOne(req.params['id'], function foundBoard(err, board){
       if (err) return next(err);
-      if (!board) return next();
+      if (!board) return next('Brak takiej tablicy.');
       res.view({
         board: board
       });
