@@ -34,7 +34,12 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  }//,
+
+  //'/board/new': {
+  //  controller: 'BoardController',
+  //  action: 'new'
+  //}
 
   /***************************************************************************
   *                                                                          *
