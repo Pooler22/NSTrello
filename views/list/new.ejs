@@ -1,4 +1,4 @@
-<form class="navbar-form navbar-left" action="/board/create" method="POST" class="form-create-board">
+<form class="navbar-form navbar-left" action="/list/create" method="POST" class="form-create-list">
   <div class="form-group">
   <% if(flash && flash.err) { %>
     <ul class="allert allert-success">
@@ -7,11 +7,11 @@
       <% }) %>
       </ul>
   <% } %>
-
   <div class="input-group">
-    <input type="text" class="form-control" placeholder="Nazwa tablicy" name="name">
+    <input type="text" class="form-control" placeholder="Nazwa Listy" name="name">
+    <input type="hidden" class="form-control" name="owner" value="<%= board.id %>">
     <input type="hidden" name="_csrf" value="<%= _csrf %>">
-    <button type="submit" class="btn btn-default">Wyślij</button>
+    <button type="submit" class="btn btn-default">Dodaj listę</button>
   </div>
 </div>
 </form>
