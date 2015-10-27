@@ -1,0 +1,13 @@
+.home-page{
+  .jumbotron {
+    background-color: #fff; background-image: url('/images/main.png'); background-size: contain; background-repeat: no-repeat; background-position: center;
+    position: relative;  min-height: 380px; }
+  h2 { width: 100%; padding: 30px; color: $blue; text-align: center; }
+  h3 { text-align: center; }
+  .authors { margin-bottom: 100px;
+    .photo { margin: 20% 20px; width: 80%; padding-bottom: 80%; background: #e2e4e6; border-radius: 500px; position: relative;
+      i { color: #fff; position: absolute; font-size: 100px; line-height: 100px; top: 50%; left: 50%; margin: -50px 0 0 -39px; }
+    }
+    .fullname { text-align: center; font-size: 20px; }
+  }
+}

@@ -1,6 +1,9 @@
 $blue: #026aa7;
 $blueLight: #398aba;
 $blueLightHover: #5198c2;
+$fontColor: #4d4d4d;
 
-@import "header";
 @import "fonts";
+@import "header";
+@import "home-page";
+@import "gui";
