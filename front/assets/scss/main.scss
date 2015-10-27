@@ -1,9 +1,12 @@
 $blue: #026aa7;
+$blue2: #0079BF;
 $blueLight: #398aba;
 $blueLightHover: #5198c2;
 $fontColor: #4d4d4d;
+$iconColor: #999;
 
 @import "fonts";
 @import "header";
 @import "home-page";
+@import "board";
 @import "gui";

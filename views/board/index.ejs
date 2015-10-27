@@ -1,4 +1,26 @@
-<div class="controller">
+<div class="row">
+    <div class="col-md-11 col-centered">
+        <div class="row page-title">
+            <i class="fa fa-user"></i>
+            <h2>Moje tablice</h2>
+        </div>
+        <div class="row boards">
+            <% _.each(boards, function (board) { %>
+                <div class="board col-md-3">
+                    <a href="/board/show/<%= board.id %>">
+                        <span><%= board.name %></span>
+                    </a>
+                </div>
+            <% }) %>
+            <div class="board col-md-3 add-new">
+                <a href="/board/new/">
+                    <span>Create new board...</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="controller">
   <h2>Tablice</h2>
   <table class="table">
     <tr>
@@ -20,4 +42,4 @@
     </tr>
     <% }) %>
   </table>
-</div>
+</div>-->
