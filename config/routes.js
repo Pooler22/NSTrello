@@ -34,7 +34,11 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }//,
+  },
+  'get /tablice': {
+      view: 'board/index'
+  }
+  //,
 
   //'/board/new': {
   //  controller: 'BoardController',
