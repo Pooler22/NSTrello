@@ -3,8 +3,16 @@
   .page-title { margin: 15px 0;
     i { float: left; line-height: 24px; font-size: 16px; color: $iconColor; }
     h2 { float: left; color: $fontColor; text-transform: uppercase; font-size: 16px; font-weight: 700; line-height: 24px; margin: 1px 10px; }
+    &.white {
+      i { color: #fff; }
+      h2 { color: #fff; }
+    }
+    .board-title { padding: 8px; border-radius: 4px; cursor: pointer;
+      &:hover { background: $blue; }
+    }
   }
 }
+.blue-bg { background: #0079bf; }
 .btn {
   &.green { border: 0; font-weight: 700; line-height: 22px; margin: 8px 4px 0 0; padding: 7px 20px;
     background: -webkit-linear-gradient(top,#61bd4f 0,#5aac44 100%);

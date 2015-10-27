@@ -1,10 +1,56 @@
-<h1><%= board.name %></h1>
-  <a class="btn btn-warning" href="/board/edit/<%= board.id %>">Zmień nazwę</a>
-  </br>
-  <form action="/board/destroy/<%= board.id %>" method="POST">
-    <input type="hidden" name="_method" value="delete">
-    <button type="submit" class="btn btn-sm btn-danger">Usuń</button>
-    <input type="hidden" name="_csrf" value="<%= _csrf %>">
-  </form>
+<div class="col-md-12 blue-bg" id="board-view">
+    <div class="row">
+        <div class="col-md-11 col-centered">
+            <div class="row page-title white">
+                <h2 class="board-title" data-toggle="modal" data-target="#editName"><%= board.name %></h2>
+                <div class="pull-right" style="margin-top: 5px; ">
+                    <form action="/board/destroy/<%= board.id %>" method="POST">
+                        <input type="hidden" name="_method" value="delete">
 
-  <% include ../list/new.ejs%>
+                        <div class="btn btn-sm btn-danger">
+                            <button type="submit" class="close">×</button>
+                        </div>
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <h1><%= board.name %></h1>
+      <a class="btn btn-warning" href="/board/edit/<%= board.id %>">Zmień nazwę</a>
+      </br>
+
+
+      <% include ../list/new.ejs %>
+</div>
+<!-- Modal -->
+<div id="editName" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Rename Board</h4>
+            </div>
+            <form action="/board/edit/<%= board.id %>" method="post" id="rename-board">
+                <div class="form-group">
+                    <div class="input-group" style="width: 100%;">
+                        <div class="modal-body clearfix">
+                            <input type="text" style="width: 100%;" class="form-control" placeholder="<%= board.name %>">
+                            <input type='hidden' name='_csrf' value='<%= _csrf %>'>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn green" data-url="" >Rename</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+
+    </div>
+</div>

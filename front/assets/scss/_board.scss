@@ -1,5 +1,5 @@
 .boards {
-  .board {
+  .board { padding-bottom: 30px;
     a { color: #fff; display: block;  padding: 10px; border-radius: 4px; height: 96px; background: $blue2; position: relative; font-weight: 700; font-size: 18px;
       span { position: relative; z-index: 10; }
       &:hover { text-decoration: none; }

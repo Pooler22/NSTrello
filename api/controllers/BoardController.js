@@ -12,6 +12,7 @@ module.exports = {
   },
 
   create: function(req, res, next){
+      global.myvar = 100;
     //create board with the params send from form -> new.ejs
     Board.create(req.params.all(), function boardCreated (err, board){
       if (err) {
@@ -52,6 +53,13 @@ module.exports = {
       res.view({
         board: board
       });
+    });
+  },
+
+  editAjax: function(req,res,next){
+    Board.findOne(req.params['id'], function foundBoard(err, board){
+      if (err) return next(err);
+      if (!board) return next('Brak takiej tablicy.');
     });
   },
 
