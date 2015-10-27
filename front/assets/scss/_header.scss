@@ -1,0 +1,9 @@
+header { background: $blue; height: 40px; text-align: center; padding: 5px 15px;
+  a { color: #fff;
+    &:hover { color: #f2f2f2; text-decoration: none; }
+  }
+  .boards-link { background: $blueLight; padding: 5px 15px; color: #fff; border-radius: 4px; }
+  .logo {opacity: .5; -webkit-transition: opacity ease-in 85ms; transition: opacity ease-in 85ms;
+    &:hover { opacity: 1; }
+  }
+}

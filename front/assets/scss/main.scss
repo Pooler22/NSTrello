@@ -1,3 +1,6 @@
-//bootstrap
-@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+$blue: #026aa7;
+$blueLight: #398aba;
+$blueLightHover: #5198c2;
 
+@import "header";
+@import "fonts";
