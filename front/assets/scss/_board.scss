@@ -5,11 +5,23 @@
       &:hover { text-decoration: none; }
     }
     &.add-new {
-      a { text-align: center; padding-top: 35px; background: #8c8c8c; font-weight: normal; }
+      a { text-align: center; padding-top: 35px; background: $grey; font-weight: normal; }
+      &.open {
+         a, .add-board { display: none; }
+        .new-board { display: block; }
+      }
     }
     &:hover {
       a {
-        &:before { content: " "; position: absolute; border-radius: 4px; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,.25); }
+        &:before { content: " "; position: absolute; border-radius: 4px; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,.25); cursor: pointer; }
+      }
+    }
+    .new-board { display: none; position: absolute; top: 0; left: 0; border: 1px solid $borderColor; min-height: 100%; width: 100%; background: #fff; padding: 15px; border-radius: 4px;
+      .new-board-title { text-align: center; border-bottom: 1px solid $borderColor; padding-bottom: 6px; color: $grey; }
+      .navbar-form { padding: 10px 0; width: 100%;
+        .form-group { width: 100%;
+          .input-group { width: 100%; }
+        }
       }
     }
   }

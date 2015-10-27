@@ -5,3 +5,15 @@
     h2 { float: left; color: $fontColor; text-transform: uppercase; font-size: 16px; font-weight: 700; line-height: 24px; margin: 1px 10px; }
   }
 }
+.btn {
+  &.green { border: 0; font-weight: 700; line-height: 22px; margin: 8px 4px 0 0; padding: 7px 20px;
+    background: -webkit-linear-gradient(top,#61bd4f 0,#5aac44 100%);
+    background: linear-gradient(to bottom,#61bd4f 0,#5aac44 100%);
+    box-shadow: 0 1px 0 #3f6f21;
+    color: #fff;
+    &:hover {
+      background: -webkit-linear-gradient(top,#5aac44 0,#519839 100%);
+      background: linear-gradient(to bottom,#5aac44 0,#519839 100%);
+    }
+  }
+}
