@@ -1,29 +1,39 @@
 <div class="col-md-12 blue-bg" id="board-view">
-    <div class="row">
-        <div class="col-md-11 col-centered">
-            <div class="row page-title white">
-                <h2 class="board-title board-name" data-toggle="modal" data-target="#editName"><%= board.name %></h2>
-                <div class="pull-right" style="margin-top: 5px; ">
-                    <form action="/board/destroy/<%= board.id %>" method="POST">
-                        <input type="hidden" name="_method" value="delete">
+    <div class="col-md-12 col-centered">
+        <div class="row page-title white">
+            <h2 class="board-title board-name" data-toggle="modal" data-target="#editName"><%= board.name %></h2>
+            <div style="margin-top: 5px; ">
+                <form action="/board/destroy/<%= board.id %>" method="POST">
+                    <input type="hidden" name="_method" value="delete">
 
-                        <div class="btn btn-sm btn-danger">
-                            <button type="submit" class="close">×</button>
-                        </div>
-                        <input type="hidden" name="_csrf" value="<%= _csrf %>">
-                    </form>
-                </div>
+                        <button type="submit" class="close delete-board">×</button>
+                    <input type="hidden" name="_csrf" value="<%= _csrf %>">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-centered" id="lists-main-view">
+        <div id="lists">
+            <div id="lists-content" data-scroll-content style="white-space: nowrap;">
+                <div class="list">lista 1</div>
+
             </div>
         </div>
     </div>
 
+    <div class="custom-scroll lists-scroll" data-scroll="#lists">
+        <div class="custom-scroll-bar" style="width: 0%"></div>
+    </div>
 
-    <h1 class="board-name"><%= board.name %></h1>
+
+
+
+    <!--<h1 class="board-name"><%= board.name %></h1>
       <a class="btn btn-warning" href="/board/edit/<%= board.id %>">Zmień nazwę</a>
       </br>
 
 
-      <% include ../list/new.ejs %>
+      <% include ../list/new.ejs %>-->
 </div>
 <!-- Modal -->
 <div id="editName" class="modal fade" role="dialog">
