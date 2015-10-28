@@ -9,9 +9,11 @@ $(document).ready(function() {
 
     $('.custom-scroll').each(function(key){
         var $scrollContent = $(this).attr('data-scroll');
-        var length = $($scrollContent+' '+'div[data-scroll-content] *').length;
+        var length = $($scrollContent+' '+'div[data-scroll-content] > .list').length;
         var widthContent = $($scrollContent+' '+'div[data-scroll-content]').outerWidth()
         var widthElement = $($scrollContent+' '+'div[data-scroll-content] *:first-child').outerWidth()+10;
+
+        console.log(widthContent +" >= "+length+" * "+widthElement);
 
         if(widthContent >= length*widthElement) $(this).css('display', 'none');
 

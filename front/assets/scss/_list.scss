@@ -1,6 +1,8 @@
 #lists-main-view { min-height: 300px; overflow: hidden;
   #lists { overflow: hidden;
-    .list { width: 270px; background: #e2e4e6;  border-radius: 4px; box-sizing: border-box; max-height: 100%; padding: 8px 10px; position: relative; display: inline-block; margin-right: 6px;
+    .list { width: 270px; background: #e2e4e6;  border-radius: 4px; box-sizing: border-box; max-height: 100%; padding: 8px 10px; position: relative; display: inline-block; vertical-align: top;
+      margin-right: 6px;
+      &.add-list { background: rgba(0,0,0,.12); }
     }
   }
 }
