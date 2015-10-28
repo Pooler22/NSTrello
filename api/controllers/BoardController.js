@@ -57,10 +57,14 @@ module.exports = {
   },
 
   editAjax: function(req,res,next){
-    Board.findOne(req.params['id'], function foundBoard(err, board){
-      if (err) return next(err);
-      if (!board) return next('Brak takiej tablicy.');
-    });
+      console.log('editAjax '+req.params['id']);
+      console.log(req.params.all());
+      Board.update(req.params['id'], req.params.all(), function updateBoard(err){
+          if(err){
+              res.json({ result: false })
+          }
+          res.json({ result: true })
+      });
   },
 
   update: function(req, res, next){

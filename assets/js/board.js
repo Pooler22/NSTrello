@@ -7,14 +7,21 @@ $(document).ready(function(){
     $("#rename-board").submit(function(e) {
 
         var url = $(this).attr('action'); // the script where you handle the form input.
-
+        var newName = $('#new-name').val();
         $.ajax({
             type: "POST",
             url: url,
-            data: $("#idForm").serialize(), // serializes the form's elements.
+            data: {
+                name: newName
+            },
             success: function(data)
             {
-                alert(data); // show response from the php script.
+                if(data.result === true){
+                    $('.board-name').html(newName);
+                }
+            },
+            error: function(result) {
+                console.log(data);
             }
         });
 
