@@ -1,0 +1,11 @@
+.custom-scroll{ margin: 10px 0; height: 10px; background: rgba(255,255,255,.3); width: 100%; border-radius: 4px;
+  .custom-scroll-bar { height: 10px; background: rgba(255,255,255,.9); border-radius: 4px; position: relative;}
+}
+.noselect {
+  ::selection {
+    background: transparent; /* WebKit/Blink Browsers */
+  }
+  ::-moz-selection {
+    background: transparent; /* Gecko Browsers */
+  }
+}

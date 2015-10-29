@@ -1,4 +1,58 @@
-<div class="controller">
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-11 col-centered">
+            <div class="row page-title">
+                <i class="fa fa-user"></i>
+                <h2>Moje tablice</h2>
+            </div>
+            <div class="row boards">
+                <% _.each(boards, function (board) { %>
+                    <div class="board col-md-3">
+                        <a href="/board/show/<%= board.id %>">
+                            <span><%= board.name %></span>
+                        </a>
+                    </div>
+                <% }) %>
+                <div class="board col-md-3 add-new">
+                    <a class="add-board">
+                        <span>Create new board...</span>
+                    </a>
+                    <div class="new-board">
+                        <div class="new-board-title">
+                            <span>Create Board</span>
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+                        </div>
+                        <form class="navbar-form navbar-left" action="/board/create" method="POST" class="form-create-board">
+                            <div class="form-group">
+                                <% if(flash && flash.err) { %>
+                                <ul class="allert allert-success">
+                                    <% Object.keys(flash.err).forEach(function(error){ %>
+                                    <li><%- JSON.stringify(flash.err[error]) %></li>
+                                    <% }) %>
+                                </ul>
+                                <% } %>
+
+                                <div class="input-group">
+                                    <div>
+                                        <label>Title</label>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Like 'Programowanie aplikacji webowych' for example..." name="name">
+                                    <input type="hidden" name="_csrf" value="<%= _csrf %>">
+                                    <button type="submit" class="btn green">Create</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--<div class="controller">
   <h2>Tablice</h2>
   <table class="table">
     <tr>
@@ -20,4 +74,4 @@
     </tr>
     <% }) %>
   </table>
-</div>
+</div>-->

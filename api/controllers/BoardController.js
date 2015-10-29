@@ -7,11 +7,12 @@
 
 module.exports = {
   //loads add-booard form -> new.ejs
-  'new': function(req,res){
+  new: function(req,res){
     res.view();
-
   },
+
   create: function(req, res, next){
+      global.myvar = 100;
     //create board with the params send from form -> new.ejs
     Board.create(req.params.all(), function boardCreated (err, board){
       if (err) {
@@ -25,15 +26,24 @@ module.exports = {
       return res.redirect('/board/show/'+board.id);
     });
   },
+
   show: function(req, res, next){
-    Board.findOne(req.params['id'], function foundBoard (err, board){
-      if (err) return next(err);
-      if (!board) return next();
-      res.view({
-        board: board
+      var lists = null;
+      List.find().where({owner: req.params['id']}).exec(function foundList(err, data) {
+          if (err) return next(err);
+          lists = data;
       });
-    });
+
+      Board.findOne(req.params['id'], function foundBoard (err, board){
+          if (err) return next(err);
+          if (!board) return next();
+          res.view({
+              board: board,
+              lists: lists
+          });
+      });
   },
+
   index: function(req,res, next) {
     Board.find(function foundBoards(err, boards) {
       if (err) return next(err);
@@ -42,6 +52,7 @@ module.exports = {
       });
     });
   },
+
   edit: function(req,res,next){
     Board.findOne(req.params['id'], function foundBoard(err, board){
       if (err) return next(err);
@@ -51,6 +62,18 @@ module.exports = {
       });
     });
   },
+
+  editAjax: function(req,res,next){
+      console.log('editAjax '+req.params['id']);
+      console.log(req.params.all());
+      Board.update(req.params['id'], req.params.all(), function updateBoard(err){
+          if(err){
+              res.json({ result: false })
+          }
+          res.json({ result: true })
+      });
+  },
+
   update: function(req, res, next){
     Board.update(req.params['id'], req.params.all(), function updateBoard(err){
       if(err){
@@ -59,11 +82,11 @@ module.exports = {
       res.redirect('/board/show/' + req.param('id'));
     });
   },
+
   destroy: function(req, res, next){
     Board.findOne(req.param('id'), function foundBoard(err, board){
       if (err) return next(err);
       if (!board) return next('Brak takiej tablicy.');
-
       Board.destroy(req.param('id'), function boardDestroyed(err){
         if (err) return next(err);
       });
