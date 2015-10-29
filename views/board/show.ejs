@@ -15,9 +15,10 @@
     <div class="col-md-12 col-centered" id="lists-main-view">
         <div id="lists">
             <div id="lists-content" data-scroll-content style="white-space: nowrap;">
-                <div class="list">lista 1</div>
+                <% _.each(lists, function (list) { %>
+                    <div class="list"><%= list.name %></div>
+                <% }) %>
                 <% include ../list/new.ejs %>
-
             </div>
         </div>
     </div>
@@ -25,6 +26,7 @@
     <div class="custom-scroll lists-scroll" data-scroll="#lists">
         <div class="custom-scroll-bar" style="width: 0%"></div>
     </div>
+
 
 
 

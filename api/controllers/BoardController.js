@@ -28,13 +28,20 @@ module.exports = {
   },
 
   show: function(req, res, next){
-    Board.findOne(req.params['id'], function foundBoard (err, board){
-      if (err) return next(err);
-      if (!board) return next();
-      res.view({
-        board: board
+      var lists = null;
+      List.find().where({owner: req.params['id']}).exec(function listBoards(err, data) {
+          if (err) return next(err);
+          lists = data;
       });
-    });
+
+      Board.findOne(req.params['id'], function foundBoard (err, board){
+          if (err) return next(err);
+          if (!board) return next();
+          res.view({
+              board: board,
+              lists: lists
+          });
+      });
   },
 
   index: function(req,res, next) {
