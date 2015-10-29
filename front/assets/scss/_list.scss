@@ -8,6 +8,10 @@
         .dropdown {  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; display: none; position: absolute; z-index: 100; left: 0; top: 12px; width: 200px; background: #fff; margin: 0; list-style: none; padding: 15px 0; border-radius: 4px; border: 1px solid $borderColor;
           li {cursor: pointer; display: block; font-weight: 700; padding: 6px 10px; font-size: 14px!important;
             .delete-list{ float: none; font-size: 14px!important; }
+            &:hover {
+              background-color: #298fca;
+              color: #fff;
+            }
           }
         }
         &.open{  opacity: 1;

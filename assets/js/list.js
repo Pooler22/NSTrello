@@ -16,6 +16,11 @@ $(document).ready(function(){
         }
     });
 
+    $('.rename-list').click(function(){
+        console.log('lala');
+        $('#editListName').modal('show');
+    });
+
     $("#add-list").submit(function(e) {
 
         var url = $(this).attr('action'); // the script where you handle the form input.

@@ -20,7 +20,11 @@
                         <span><%= list.name %></span>
                         <i class="fa fa-arrow-circle-o-down pull-right dropdown-list">
                             <ul class="dropdown">
-                                <li>Zmień nazwę</li>
+                                <li class="rename-list">
+                                    <a href="#" ></a>
+                                        Zmień nazwę
+                                    </a>
+                                </li>
                                 <li>
                                     <form action="/list/destroy/<%= list.id %>" method="POST" class="delete-list" data-list-id="<%= list.id %>">
                                         <input type="hidden" name="_method" value="delete">
@@ -75,6 +79,35 @@
                     </div>
                 </div>
             </form>
+
+
+        </div>
+
+    </div>
+</div>
+
+<div id="editListName" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Rename list</h4>
+            </div>
+            <!--<form action="/board/editAjax/<%= board.id %>" method="post" id="rename-board">-->
+                <div class="form-group">
+                    <div class="input-group" style="width: 100%;">
+                        <div class="modal-body clearfix">
+                            <input type="text" style="width: 100%;" class="form-control" id="new-name" placeholder="">
+                            <input type='hidden' name='_csrf' value='<%= _csrf %>'>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn green" data-url="" >Rename</button>
+                        </div>
+                    </div>
+                </div>
+            <!--</form>-->
 
 
         </div>
