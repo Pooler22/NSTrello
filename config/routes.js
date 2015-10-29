@@ -37,7 +37,9 @@ module.exports.routes = {
   },
   'get /tablice': {
       view: 'board/index'
-  }
+  },
+
+  'list':{ view: 'list/index'}
   //,
 
   //'/board/new': {
