@@ -3,6 +3,7 @@
     .list { width: 270px; background: #e2e4e6;  border-radius: 4px; box-sizing: border-box; max-height: 100%; padding: 8px 10px; position: relative; display: inline-block; vertical-align: top;
       margin-right: 6px;
       &.add-list { background: rgba(0,0,0,.12); }
+      .delete-list { position: absolute; right: 4px; top: 4px; }
     }
   }
 }

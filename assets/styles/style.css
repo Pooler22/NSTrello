@@ -2132,6 +2132,10 @@ header {
       margin-right: 6px; }
       #lists-main-view #lists .list.add-list {
         background: rgba(0, 0, 0, 0.12); }
+      #lists-main-view #lists .list .delete-list {
+        position: absolute;
+        right: 4px;
+        top: 4px; }
 
 .custom-scroll {
   margin: 10px 0;

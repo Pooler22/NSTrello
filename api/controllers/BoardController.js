@@ -29,7 +29,7 @@ module.exports = {
 
   show: function(req, res, next){
       var lists = null;
-      List.find().where({owner: req.params['id']}).exec(function listBoards(err, data) {
+      List.find().where({owner: req.params['id']}).exec(function foundList(err, data) {
           if (err) return next(err);
           lists = data;
       });

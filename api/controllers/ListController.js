@@ -7,24 +7,39 @@
 
 module.exports = {
 	new: function(req,res){
-    res.view();
-  },
+        res.view();
+    },
+
 	create: function(req, res, next){
-    console.log('createAjax '+req.params['owner']);
-    console.log(req.params.all());
-    var ret = true;
-    List.create(req.params.all(), function listCreated (err, list){
-        console.log('tworzy');
-        if (err) {
-            ret = false;
-            req.session.flash = {
-                err: err
-            };
+        var ret = true;
+        List.create(req.params.all(), function listCreated (err, list){
+            if (err) {
+                ret = false;
+                req.session.flash = {
+                    err: err
+                };
+            }
+            return res.json({ result: ret })
+        });
+    },
+
+    destroy: function(req, res, next){
+        var ret = false;
+
+        try {
+            List.findOne(req.param('id'), function foundList(err, list){
+                if (err) return next(err);
+                if (!list) return res.json({ result: ret });
+                console.log(list);
+                List.destroy(req.param('id'), function listDestroyed(err){
+                    ret = true;
+                });
+                return res.json({ result: true })
+            });
+
+        } catch(e) {
+            console.log(e);
             return res.json({ result: ret })
         }
-        return res.json({ result: ret })
-    });
-
-
-  }
+    }
 };

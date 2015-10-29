@@ -16,7 +16,14 @@
         <div id="lists">
             <div id="lists-content" data-scroll-content style="white-space: nowrap;">
                 <% _.each(lists, function (list) { %>
-                    <div class="list"><%= list.name %></div>
+                    <div class="list" data-list-id="<%= list.id %>">
+                        <span><%= list.name %></span>
+                        <form action="/list/destroy/<%= list.id %>" method="POST" class="delete-list" data-list-id="<%= list.id %>">
+                            <input type="hidden" name="_method" value="delete">
+                            <button type="submit" class="close delete-list">×</button>
+                            <input type="hidden" name="_csrf" value="<%= _csrf %>">
+                        </form>
+                    </div>
                 <% }) %>
                 <% include ../list/new.ejs %>
             </div>
