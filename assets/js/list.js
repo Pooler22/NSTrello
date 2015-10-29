@@ -1,5 +1,21 @@
 $(document).ready(function(){
 
+    $('.dropdown-list').click(function(){
+        $('.dropdown-list').removeClass('open');
+        $(this).addClass('open');
+    });
+
+    $(document).mouseup(function (e)
+    {
+        var container = $('.dropdown-list')
+
+        if (!container.is(e.target) // if the target of the click isn't the container...
+            && container.has(e.target).length === 0) // ... nor a descendant of the container
+        {
+            $('.dropdown-list').removeClass('open');
+        }
+    });
+
     $("#add-list").submit(function(e) {
 
         var url = $(this).attr('action'); // the script where you handle the form input.

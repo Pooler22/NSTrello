@@ -2132,10 +2132,41 @@ header {
       margin-right: 6px; }
       #lists-main-view #lists .list.add-list {
         background: rgba(0, 0, 0, 0.12); }
-      #lists-main-view #lists .list .delete-list {
-        position: absolute;
-        right: 4px;
-        top: 4px; }
+      #lists-main-view #lists .list .dropdown-list {
+        color: #999;
+        opacity: 0.5;
+        transition: .3s;
+        cursor: pointer;
+        position: relative; }
+        #lists-main-view #lists .list .dropdown-list:hover {
+          opacity: 1; }
+        #lists-main-view #lists .list .dropdown-list .dropdown {
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          display: none;
+          position: absolute;
+          z-index: 100;
+          left: 0;
+          top: 12px;
+          width: 200px;
+          background: #fff;
+          margin: 0;
+          list-style: none;
+          padding: 15px 0;
+          border-radius: 4px;
+          border: 1px solid #d6dadc; }
+          #lists-main-view #lists .list .dropdown-list .dropdown li {
+            cursor: pointer;
+            display: block;
+            font-weight: 700;
+            padding: 6px 10px;
+            font-size: 14px !important; }
+            #lists-main-view #lists .list .dropdown-list .dropdown li .delete-list {
+              float: none;
+              font-size: 14px !important; }
+        #lists-main-view #lists .list .dropdown-list.open {
+          opacity: 1; }
+          #lists-main-view #lists .list .dropdown-list.open .dropdown {
+            display: block; }
 
 .custom-scroll {
   margin: 10px 0;

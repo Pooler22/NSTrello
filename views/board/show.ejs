@@ -18,11 +18,18 @@
                 <% _.each(lists, function (list) { %>
                     <div class="list" data-list-id="<%= list.id %>">
                         <span><%= list.name %></span>
-                        <form action="/list/destroy/<%= list.id %>" method="POST" class="delete-list" data-list-id="<%= list.id %>">
-                            <input type="hidden" name="_method" value="delete">
-                            <button type="submit" class="close delete-list">×</button>
-                            <input type="hidden" name="_csrf" value="<%= _csrf %>">
-                        </form>
+                        <i class="fa fa-arrow-circle-o-down pull-right dropdown-list">
+                            <ul class="dropdown">
+                                <li>Zmień nazwę</li>
+                                <li>
+                                    <form action="/list/destroy/<%= list.id %>" method="POST" class="delete-list" data-list-id="<%= list.id %>">
+                                        <input type="hidden" name="_method" value="delete">
+                                        <button type="submit" class="close delete-list">Usuń</button>
+                                        <input type="hidden" name="_csrf" value="<%= _csrf %>">
+                                    </form>
+                                </li>
+                            </ul>
+                        </i>
                     </div>
                 <% }) %>
                 <% include ../list/new.ejs %>
