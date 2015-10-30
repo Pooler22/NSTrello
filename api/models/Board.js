@@ -16,9 +16,5 @@ module.exports = {
       collection: 'list',
       via: 'owner'
     },
-    owner: {
-      model: 'user',
-      required: true
-    }
   }
 };
