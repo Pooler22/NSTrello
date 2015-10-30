@@ -25,6 +25,10 @@ module.exports = {
   	encryptedPassword: {
   		type: 'string'
   	},
+    boards: {
+      collection: 'list',
+      via: 'owner'
+    }
 
     toJSON: function() {
       var obj = this.toObject();
