@@ -25,7 +25,7 @@
     "jquery": "~2.1.4",
     "jquery-validation": "~1.14.0",
     "bootstrap": "~3.3.5",
-    "malihu-custom-scrollbar-plugin" : "3.1.1"
+    "malihu-custom-scrollbar-plugin": "3.1.1"
   },
   "scripts": {
     "debug": "node debug app.js",
@@ -37,5 +37,9 @@
     "url": "git://github.com/pooler/NSTrello1.git"
   },
   "author": "pooler",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "mocha": "^2.3.3",
+    "supertest": "^1.1.0"
+  }
 }
