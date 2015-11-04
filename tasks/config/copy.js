@@ -44,6 +44,11 @@ module.exports = function(grunt) {
 				dest: './assets/fonts/dependencies'
 			},{
 				expand: true,
+				cwd: './node_modules/font-awesome/fonts',
+				src: ['**/*'],
+				dest: './assets/fonts/dependencies'
+			},{
+				expand: true,
 				cwd: './assets',
 				src: ['**/*.!(coffee|less)'],
 				dest: '.tmp/public'

@@ -25,7 +25,8 @@
     "jquery": "~2.1.4",
     "jquery-validation": "~1.14.0",
     "bootstrap": "~3.3.5",
-    "malihu-custom-scrollbar-plugin": "3.1.1"
+    "malihu-custom-scrollbar-plugin": "3.1.1",
+    "font-awesome": "4.4.0"
   },
   "scripts": {
     "debug": "node debug app.js",
