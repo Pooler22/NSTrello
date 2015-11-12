@@ -18,7 +18,6 @@ module.exports = {
         };
       }
       return res.redirect('/board/show/' + req.param('owner'));
-      //return res.json({ result: ret })
     });
   },
 
@@ -51,28 +50,17 @@ module.exports = {
   },
 
   destroy: function(req, res, next) {
-    var ret = false;
-
-    try {
-      List.findOne(req.param('id'), function foundList(err, list) {
+    List.findOne(req.param('id'), function foundList(err, list) {
+      if (err) return next(err);
+      if (!list) return res.notFound();
+      console.log(list);
+      List.destroy(req.param('id'), function listDestroyed(err) {
         if (err) return next(err);
-        if (!list) return res.json({
-          result: ret
-        });
-        console.log(list);
-        List.destroy(req.param('id'), function listDestroyed(err) {
-          ret = true;
-        });
+        if (!list) return res.notFound();
         return res.json({
           result: true
         });
       });
-
-    } catch (e) {
-      console.log(e);
-      return res.json({
-        result: ret
-      });
-    }
+    });
   }
 };

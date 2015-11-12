@@ -7,26 +7,28 @@
       </div>
       <div class="row boards">
         <% _.each(boards, function (board) { %>
-          <div class="board col-md-3">
-            <a href="/board/show/<%= board.id %>">
-              <span>
-                <%= board.name %>
-              </span>
-            </a>
-          </div>
-          <% }) %>
-            <div class="board col-md-3 add-new">
-              <a class="add-board">
-                <span>Create new board...</span>
+          <% if(board.owner == session.User.id ){%>
+            <div class="board col-md-3">
+              <a href="/board/show/<%= board.id %>">
+                <span>
+                  <%= board.name %>
+                </span>
               </a>
-              <div class="new-board">
-                <div class="new-board-title">
-                  <span>Create Board</span>
-                  <button type="button" class="close" data-dismiss="modal">×</button>
-                </div>
-                <%- include new.ejs %>
-              </div>
             </div>
+            <% } %>
+              <% }) %>
+                <div class="board col-md-3 add-new">
+                  <a class="add-board">
+                    <span>Create new board...</span>
+                  </a>
+                  <div class="new-board">
+                    <div class="new-board-title">
+                      <span>Create Board</span>
+                      <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+                    <%- include new.ejs %>
+                  </div>
+                </div>
       </div>
     </div>
   </div>
