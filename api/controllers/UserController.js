@@ -20,7 +20,7 @@ module.exports = {
       email: req.param('email'),
       password: req.param('password'),
       confirmation: req.param('confirmation')
-    }
+    };
 
     // Create a User with the params sent from
     // the sign-up form --> new.ejs
@@ -33,7 +33,7 @@ module.exports = {
         console.log(err);
         req.session.flash = {
           err: err
-        }
+        };
 
         // If error redirect back to sign-up page
         return res.redirect('/user/new');
@@ -48,11 +48,11 @@ module.exports = {
       user.save(function(err, user) {
         if (err) return next(err);
 
-      // add the action attribute to the user object for the flash message.
-      user.action = " signed-up and logged-in."
+        // add the action attribute to the user object for the flash message.
+        user.action = " signed-up and logged-in.";
 
-      // Let other subscribed sockets know that the user was created.
-      User.publishCreate(user);
+        // Let other subscribed sockets know that the user was created.
+        User.publishCreate(user);
 
         // After successfully creating the user
         // redirect to the show action
@@ -102,20 +102,20 @@ module.exports = {
 
   // process the info from edit view
   update: function(req, res, next) {
-
+    var userObj;
     if (req.session.User.admin) {
-      var userObj = {
+      userObj = {
         name: req.param('name'),
         title: req.param('title'),
         email: req.param('email'),
         admin: req.param('admin')
-      }
+      };
     } else {
-      var userObj = {
+      userObj = {
         name: req.param('name'),
         title: req.param('title'),
         email: req.param('email')
-      }
+      };
     }
 
     User.update(req.param('id'), userObj, function userUpdated(err) {
