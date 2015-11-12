@@ -3,7 +3,7 @@
     <div class="col-md-11 col-centered">
       <div class="row page-title">
         <i class="fa fa-user"></i>
-        <h2>Moje tablice</h2>
+        <h2>My boards</h2>
       </div>
       <div class="row boards">
         <% _.each(boards, function (board) { %>
@@ -17,18 +17,7 @@
             </div>
             <% } %>
               <% }) %>
-                <div class="board col-md-3 add-new">
-                  <a class="add-board">
-                    <span>Create new board...</span>
-                  </a>
-                  <div class="new-board">
-                    <div class="new-board-title">
-                      <span>Create Board</span>
-                      <button type="button" class="close" data-dismiss="modal">×</button>
-                    </div>
-                    <%- include new.ejs %>
-                  </div>
-                </div>
+                <%- include new.ejs %>
       </div>
     </div>
   </div>

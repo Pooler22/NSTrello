@@ -1,23 +1,34 @@
-<form class="navbar-form navbar-left" action="/board/create" method="POST" class="form-create-board">
-  <div class="form-group">
-    <% if(flash && flash.err) { %>
-      <ul class="allert allert-success">
-        <% Object.keys(flash.err).forEach(function(error){ %>
-          <li>
-            <%- JSON.stringify(flash.err[error]) %>
-          </li>
-          <% }) %>
-      </ul>
-      <% } %>
+<div class="board col-md-3 add-new">
+  <a class="add-board">
+    <span>Create new board...</span>
+  </a>
+  <div class="new-board">
+    <div class="new-board-title">
+      <span>Create Board</span>
+      <button type="button" class="close" data-dismiss="modal">×</button>
+    </div>
+    <form class="navbar-form navbar-left" action="/board/create" method="POST" class="form-create-board">
+      <div class="form-group">
+        <% if(flash && flash.err) { %>
+          <ul class="allert allert-success">
+            <% Object.keys(flash.err).forEach(function(error){ %>
+              <li>
+                <%- JSON.stringify(flash.err[error]) %>
+              </li>
+              <% }) %>
+          </ul>
+          <% } %>
 
-        <div class="input-group">
-          <div>
-              <label>Title</label>
-          </div>
-          <input type="text" class="form-control" placeholder="Like 'Programowanie aplikacji webowych' for example..." name="name">
-          <input type="hidden" class="form-control" name="_csrf" value="<%= _csrf %>">
-          <input type="hidden" class="form-control" name="owner" value="<%= session.User.id %>">
-          <button type="submit" class="btn green">Create</button>
-        </div>
+            <div class="input-group">
+              <div>
+                <label>Title</label>
+              </div>
+              <input type="text" class="form-control" placeholder="Like 'Programowanie aplikacji webowych' for example..." name="name">
+              <input type="hidden" class="form-control" name="_csrf" value="<%= _csrf %>">
+              <input type="hidden" class="form-control" name="owner" value="<%= session.User.id %>">
+              <button type="submit" class="btn green">Create</button>
+            </div>
+      </div>
+    </form>
   </div>
-</form>
+</div>

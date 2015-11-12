@@ -16,34 +16,34 @@
 
           <% } %>
   </div>
-      <a href="/">
-        <img class="logo" src="/images/logo.png" />
-      </a>
+  <a href="/">
+    <img class="logo" src="/images/logo.png" />
+  </a>
 
-      <div class="pull-right">
-        <% if (session.authenticated) { %>
-          <ul class="nav navbar-nav">
-            <li class="active">
-              <a href="/user/show/<%= session.User.id %>">
-                <%= session.User.name %>
-              </a>
-            </li>
-            <a class="btn btn-default navbar-btn navbar-right" href="/session/destroy">Sign-out</a>
-            <% } %>
-              <% if (session.authenticated && session.User.admin) { %>
-                <li><a href="/user">User Administration</a></li>
-          </ul>
+  <div class="pull-right">
+    <% if (session.authenticated) { %>
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="/user/show/<%= session.User.id %>">
+            <%= session.User.name %>
+          </a>
+        </li>
+        <a class="btn btn-default navbar-btn navbar-right" href="/session/destroy">Sign-out</a>
+        <% } %>
+          <% if (session.authenticated && session.User.admin) { %>
+            <li><a href="/user">User Administration</a></li>
+      </ul>
+      <% } %>
+        <% if (!session.authenticated) { %>
+
+          <form action="/session/create" style="display:float">
+            <div>
+              <input type="text" placeholder="Email" name="email" class="form-control">
+              <input type="password" placeholder="Password" name="password" class="form-control">
+            </div>
+            <button type="submit" class="btn green">Sign In</button>
+            <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+          </form>
           <% } %>
-          <% if (!session.authenticated) { %>
-
-            <form action="/session/create" style="display:float">
-              <div>
-                <input type="text" placeholder="Email" name="email" class="form-control">
-                <input type="password" placeholder="Password" name="password" class="form-control">
-              </div>
-              <button type="submit" class="btn green">Sign In</button>
-              <input type="hidden" name="_csrf" value="<%= _csrf %>" />
-            </form>
-            <% } %>
-      </div>
+  </div>
 </header>
