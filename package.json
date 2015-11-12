@@ -25,11 +25,14 @@
     "jquery": "~2.1.4",
     "jquery-validation": "~1.14.0",
     "bootstrap": "~3.3.5",
-    "malihu-custom-scrollbar-plugin" : "3.1.1"
+    "malihu-custom-scrollbar-plugin": "3.1.1",
+    "bcrypt": "~0.8.5",
+    "font-awesome": "4.4.0"
   },
   "scripts": {
+    "start": "node app.js",
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "test": "mocha test/bootstrap.test.js test/unit/**/*.test.js"
   },
   "main": "app.js",
   "repository": {
@@ -37,5 +40,10 @@
     "url": "git://github.com/pooler/NSTrello1.git"
   },
   "author": "pooler",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "istanbul": "^0.4.0",
+    "mocha": "^2.3.3",
+    "supertest": "^1.1.0"
+  }
 }

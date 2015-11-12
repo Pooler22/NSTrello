@@ -1,97 +1,16 @@
 <div class="col-md-12 blue-bg" id="board-view">
-    <div class="col-md-12 col-centered">
-        <div class="row page-title white">
-            <h2 class="board-title board-name" data-toggle="modal" data-target="#editName"><%= board.name %></h2>
-            <div style="margin-top: 5px; ">
-                <form action="/board/destroy/<%= board.id %>" method="POST">
-                    <input type="hidden" name="_method" value="delete">
-
-                        <button type="submit" class="close delete-board">×</button>
-                    <input type="hidden" name="_csrf" value="<%= _csrf %>">
-                </form>
-            </div>
-        </div>
+  <div class="col-md-12 col-centered">
+    <div class="row page-title white">
+      <h2 class="board-title board-name" data-toggle="modal" data-target="#editName">
+        <%= board.name %>
+      </h2>
+      <% include destroy.ejs %>
     </div>
-    <div class="col-md-12 col-centered" id="lists-main-view">
-        <div id="lists">
-            <div id="lists-content" data-scroll-content style="white-space: nowrap;">
-                <% _.each(lists, function (list) { %>
-                    <div class="list" data-list-id="<%= list.id %>">
-                        <span><%= list.name %></span>
-                        <i class="fa fa-arrow-circle-o-down pull-right dropdown-list">
-                            <ul class="dropdown">
-                                <li class="rename-list">
-                                    <a href="#" ></a>
-                                        Zmień nazwę
-                                    </a>
-                                </li>
-                                <li>
-                                    <form action="/list/destroy/<%= list.id %>" method="POST" class="delete-list" data-list-id="<%= list.id %>">
-                                        <input type="hidden" name="_method" value="delete">
-                                        <button type="submit" class="close delete-list">Usuń</button>
-                                        <input type="hidden" name="_csrf" value="<%= _csrf %>">
-                                    </form>
-                                </li>
-                            </ul>
-                        </i>
-                    </div>
-                    <div id="editListName" class="modal fade" role="dialog">
-                        <div class="modal-dialog">
+  </div>
 
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Rename list</h4>
-                                </div>
-                                <% include ../list/edit.ejs %>
-                            </div>
-                        </div>
-                    </div>
-                <% }) %>
-                <% include ../list/new.ejs %>
-            </div>
-        </div>
-    </div>
+  <% include ../list/index.ejs %>
+    <% include rename.ejs %>
 
-    <div class="custom-scroll lists-scroll" data-scroll="#lists">
+      <div class="custom-scroll lists-scroll" data-scroll="#lists">
         <div class="custom-scroll-bar" style="width: 0%"></div>
-    </div>
-
-
-
-
-
-    <!--<h1 class="board-name"><%= board.name %></h1>
-      <a class="btn btn-warning" href="/board/edit/<%= board.id %>">Zmień nazwę</a>
-      </br>
-
-
-
-</div>
-<!-- Modal -->
-<div id="editName" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Rename Board</h4>
-            </div>
-            <form action="/board/editAjax/<%= board.id %>" method="post" id="rename-board">
-                <div class="form-group">
-                    <div class="input-group" style="width: 100%;">
-                        <div class="modal-body clearfix">
-                            <input type="text" style="width: 100%;" class="form-control" id="new-name" placeholder="<%= board.name %>">
-                            <input type='hidden' name='_csrf' value='<%= _csrf %>'>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn green" data-url="" >Rename</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+      </div>
