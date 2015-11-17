@@ -15,6 +15,10 @@ module.exports = {
     owner: {
       model: 'board',
       required: true
+    },
+    cards: {
+      collection: 'card',
+      via: 'owner'
     }
   }
 };

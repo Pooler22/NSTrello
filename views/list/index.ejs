@@ -2,11 +2,13 @@
   <div id="lists">
     <div id="lists-content" data-scroll-content style="white-space: nowrap;">
       <% _.each(lists, function (list) { %>
-        <div class="list" data-list-id="<%= list.id %>">
-          <span>
-            <%= list.name %>
-          </span>
-          <i class="fa fa-arrow-circle-o-down pull-right dropdown-list">
+        <div class="list list-wrapper" data-list-id="<%= list.id %>">
+
+          <div class="list-header list-header non-empty u-clearfix editable">
+            <span>
+              <%= list.name %>
+            </span>
+            <i class="fa fa-arrow-circle-o-down pull-right dropdown-list">
                         <ul class="dropdown">
                             <li class="rename-list">
                                 <a href="#" ></a>
@@ -22,6 +24,13 @@
                             </li>
                         </ul>
                     </i>
+          </div>
+
+          <%- include ../card/show.ejs%>
+          <div class="new-card">
+            <%- include ../card/new.ejs%>
+          </div>
+
         </div>
         <div id="editListName" class="modal fade" role="dialog">
           <div class="modal-dialog">

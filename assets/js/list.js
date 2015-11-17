@@ -8,8 +8,9 @@ $(document).ready(function() {
   $(document).mouseup(function(e) {
     var container = $('.dropdown-list');
 
-    if (!container.is(e.target) // if the target of the click isn't the container...
-      && container.has(e.target).length === 0) // ... nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0)
+    // if the target of the click isn't the container...
+    // ... nor a descendant of the container
     {
       $('.dropdown-list').removeClass('open');
     }
