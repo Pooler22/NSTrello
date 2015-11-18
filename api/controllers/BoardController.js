@@ -25,20 +25,28 @@ module.exports = {
   },
 
   show: function(req, res, next) {
-    var lists = null;
-    List.find().where({
-      owner: req.params.id
-    }).exec(function foundList(err, data) {
-      if (err) return next(err);
-      lists = data;
-    });
-
     Board.findOne(req.params.id, function foundBoard(err, board) {
       if (err) return next(err);
       if (!board) return next();
-      res.view({
-        board: board,
-        lists: lists
+      List.find().where({
+        owner: req.params.id
+      }).exec(function foundList(err, lists) {
+        if (err) return next(err);
+        var ids = [];
+        for (var i = 0, len = lists.length; i < len; i++) {
+          ids[i] = lists[i].id;
+        }
+        Card.find().where({
+          owner: ids
+        }).exec(function foundCards(err, cards) {
+          if (err) return next(err);
+          sails.log.error(cards);
+          res.view({
+            board: board,
+            lists: lists,
+            cards: cards
+          });
+        });
       });
     });
   },

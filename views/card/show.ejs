@@ -1,0 +1,24 @@
+<% _.each(cards, function (card) { %>
+  <% if(card.owner == list.id ){ %>
+    <div class="card-show list-cards u-fancy-scrollbar u-clearfix list-cards sortable ui-sortable">
+      <div class="list-card member-droppable ui-droppable">
+
+        <div class="list-card-cover card-cover"></div>
+
+        <span class="icon-sm icon-edit list-card-operation dark-hover open-quick-card-editor card-menu"></span>
+
+        <div class="list-card-stickers-area hide">
+          <div class="stickers card-stickers"></div>
+        </div>
+
+        <div class="list-card-details">
+          <div class="list-card-labels card-labels"></div>
+          <a class="list-card-title card-name" href="#">
+            <%= card.header %><%= card.owner %>
+          </a>
+        </div>
+
+      </div>
+    </div>
+    <% } %>
+      <% }) %>
