@@ -5,7 +5,7 @@
  * @description	:: Contains logic for handling requests.
  */
 
-var bcrypt = require('bcrypt');
+//var bcrypt = require('bcrypt');
 
 module.exports = {
 
@@ -38,7 +38,7 @@ module.exports = {
         res.redirect('/session/new');
         return;
       }
-      bcrypt.compare(req.param('password'), user.encryptedPassword, function(err, valid) {
+      /*bcrypt.compare(req.param('password'), user.encryptedPassword, function(err, valid) {
         if (err) return next(err);
         if (!valid) {
           var usernamePasswordMismatchError = [{
@@ -68,7 +68,7 @@ module.exports = {
           }
           res.redirect('/user/show/' + user.id);
         });
-      });
+      });*/
     });
   },
 

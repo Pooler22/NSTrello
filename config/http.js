@@ -21,8 +21,8 @@ module.exports.http = {
   *                                                                           *
   ****************************************************************************/
 
-  // middleware: {
-
+   middleware: {
+      p3p: require('lusca').p3p('ABCDEF'),
   /***************************************************************************
   *                                                                          *
   * The order in which middleware should be run for HTTP request. (the Sails *
@@ -30,7 +30,8 @@ module.exports.http = {
   *                                                                          *
   ***************************************************************************/
 
-    // order: [
+    order: [
+        'p3p'
     //   'startRequestTimer',
     //   'cookieParser',
     //   'session',
@@ -46,7 +47,7 @@ module.exports.http = {
     //   'favicon',
     //   '404',
     //   '500'
-    // ],
+     ]
 
   /****************************************************************************
   *                                                                           *
@@ -71,7 +72,7 @@ module.exports.http = {
 
     // bodyParser: require('skipper')
 
-  // },
+  },
 
   /***************************************************************************
   *                                                                          *
