@@ -1,8 +1,10 @@
 $(document).ready(function() {
 
+    //Edycja
     $('#card-details-title').click(function(){
         $(this).parent('.title-show').removeClass('title-show');
     });
+
     $(document).on('click', '.open-card-details', function(){
        console.log($(this).data('title'));
         $('.form-edit-card-name').addClass('title-show');
@@ -48,6 +50,34 @@ $(document).ready(function() {
         e.preventDefault(); // avoid to execute the actual submit of the form.
     });
 
+    //remove
+    $('[data-delate-card-by-id]').click(function(){
+        var id = $('#card-details-id').val();
+        $('[data-card-id="'+id+'"]').remove();
+
+        /*$.ajax({
+         type: "POST",
+         url: url,
+         data: {
+         header: textarea.val(),
+         owner: owner
+         },
+         success: function(data) {
+         if (data.result === true) {
+         console.log(data);
+
+         } else {
+         console.log(data);
+         }
+         },
+         error: function(result) {
+         console.log(data);
+         // $('#modal').modal('show');
+         }
+         });*/
+    });
+
+    //new
     $('.new-card').click(function(){
        $('.new-card').addClass('form-hidden');
        $(this).removeClass('form-hidden');
