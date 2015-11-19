@@ -78,4 +78,61 @@
     }
   }
 }
+.card-details-content {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
 
+  .card-details-feed, .card-details-column {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .card-details-column {
+    max-width: 140px;
+    > span { color: #4d4d4d; font-weight: bold; font-size: 18px; }
+    ul { list-style: none; margin: 0; padding: 0;
+      li {
+        width: 140px;
+        border-radius: 3px;
+        background: -webkit-linear-gradient(top,#fff 0,#f8f9f9 100%);
+        background: linear-gradient(to bottom,#fff 0,#f8f9f9 100%);
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        border: 1px solid #e2e4e6;
+        border-bottom-color: #cdd2d4;
+        cursor: pointer;
+        display: block;
+        font-weight: 700;
+        height: 34px;
+        margin-top: 6px;
+        max-width: 300px;
+        overflow: hidden;
+        padding: 7px;
+        position: relative;
+        text-overflow: ellipsis;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+.form-edit-card-name {
+  h4 { display: none; }
+  &.title-show {
+    h4 { display: block;}
+    form { display: none; }
+  }
+}

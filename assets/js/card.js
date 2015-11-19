@@ -1,5 +1,53 @@
 $(document).ready(function() {
 
+    $('#card-details-title').click(function(){
+        $(this).parent('.title-show').removeClass('title-show');
+    });
+    $(document).on('click', '.open-card-details', function(){
+       console.log($(this).data('title'));
+        $('.form-edit-card-name').addClass('title-show');
+        $('#card-details-title').html($(this).data('title'));
+        $('#card-details-title-input').val($(this).data('title'));
+        $('#card-details-id').val($(this).data('card-id'));
+       console.log($(this).data('card-id'));
+    });
+
+    $('#change-card-name-form').submit(function(e) {
+        var text = $('#card-details-title-input').val();
+        var id = $('#card-details-id').val();
+        $('.form-edit-card-name').addClass('title-show');
+        console.log(id + " "+text);
+
+        //send
+        $('#card-details-title').html(text);
+        $('[data-name-by-card-id="'+id+'"]').html(text);
+
+        e.preventDefault();
+        var url ='/';
+
+        /*$.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                header: textarea.val(),
+                owner: owner
+            },
+            success: function(data) {
+                if (data.result === true) {
+                    console.log(data);
+
+                } else {
+                    console.log(data);
+                }
+            },
+            error: function(result) {
+                console.log(data);
+                // $('#modal').modal('show');
+            }
+        });*/
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+    });
+
     $('.new-card').click(function(){
        $('.new-card').addClass('form-hidden');
        $(this).removeClass('form-hidden');
