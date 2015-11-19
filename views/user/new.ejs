@@ -1,37 +1,51 @@
-<form action="/user/create" method="POST" id="sign-up-form" class="form-signin">
-	<h2 class="form-signin-heading">Create an account</h2>
+<a href="#" data-toggle="modal" data-target="#register">
+    <i class="fa fa-sign-in"></i>
+    <span>Sign Up</span>
+</a>
 
-	<% if(flash && flash.err) { %>
-		<ul class="alert alert-success">
-			<% Object.keys(flash.err).forEach(function(error) { %>
-				<li>
-					<%- JSON.stringify(flash.err[error]) %>
-				</li>
-				<% }) %>
-		</ul>
-		<% } %>
+<!-- Modal -->
+<div id="register" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-			<div class="control-group">
-				<input type="text" class="form-control" placeholder="your name" name="name">
-			</div>
+        <!-- Modal content-->
+        <div class="modal-content register">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"  style="color: #000;">Create an account</h4>
+            </div>
+            <div class="modal-body">
+                <form action="/user/create" method="POST" id="sign-up-form" class="form-signin">
 
-			<div class="control-group">
-				<input type="text" class="form-control" placeholder="your title" name="title">
-			</div>
+                    <div class="control-group">
+                        <input type="text" class="form-control" placeholder="Your name" name="name">
+                    </div>
 
-			<div class="control-group">
-				<input type="text" class="form-control" placeholder="email address" name="email">
-			</div>
+                    <div class="control-group">
+                        <input type="text" class="form-control" placeholder="Your title" name="title">
+                    </div>
 
-			<div class="control-group">
-				<input type="password" class="form-control" placeholder="password" name="password" id="password">
-			</div>
+                    <div class="control-group">
+                        <input type="text" class="form-control" placeholder="Email address" name="email">
+                    </div>
 
-			<div class="control-group">
-				<input type="password" class="form-control" placeholder="password confirmation" name="confirmation">
-				<br />
-			</div>
+                    <div class="control-group">
+                        <input type="password" class="form-control" placeholder="Password" name="password" id="password">
+                    </div>
 
-			<input type="submit" class="btn btn-lg btn-primary btn-block" value="Create Account" />
-			<input type="hidden" name="_csrf" value="<%= _csrf %>" />
-</form>
+                    <div class="control-group">
+                        <input type="password" class="form-control" placeholder="Password confirmation" name="confirmation">
+                        <br />
+                    </div>
+
+                    <input type="submit" class="btn btn-lg btn-primary btn-block" value="Create Account" />
+                    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

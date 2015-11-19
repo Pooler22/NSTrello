@@ -10,11 +10,7 @@ html {
 @font-face {
   font-family: 'FontAwesome';
   src: url('../fonts/dependencies/fontawesome-webfont.eot?v=4.4.0');
-  src: url('../fonts/dependencies/fontawesome-webfont.eot?#iefix&v=4.4.0') format('embedded-opentype'),
-  url('../fonts/dependencies/fontawesome-webfont.woff2?v=4.4.0') format('woff2'),
-  url('../fonts/dependencies/fontawesome-webfont.woff?v=4.4.0') format('woff'),
-  url('../fonts/dependencies/fontawesome-webfont.ttf?v=4.4.0') format('truetype'),
-  url('../fonts/dependencies/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular') format('svg');
+  src: url('../fonts/dependencies/fontawesome-webfont.eot?#iefix&v=4.4.0') format('embedded-opentype'), url('../fonts/dependencies/fontawesome-webfont.woff2?v=4.4.0') format('woff2'), url('../fonts/dependencies/fontawesome-webfont.woff?v=4.4.0') format('woff'), url('../fonts/dependencies/fontawesome-webfont.ttf?v=4.4.0') format('truetype'), url('../fonts/dependencies/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal; }
 
@@ -2053,6 +2049,22 @@ header {
     text-align: center;
     font-size: 20px; }
 
+.register .form-control {
+  margin-bottom: 10px; }
+  .register .form-control.error {
+    border: 1px solid red; }
+.register label.error {
+  display: none !important; }
+
+.navbar-nav.nav > li.user-name > a {
+  padding: 4px 0 0 0; }
+  .navbar-nav.nav > li.user-name > a:hover {
+    background-color: transparent !important; }
+.navbar-nav.nav .logout {
+  margin-top: -2px;
+  margin-left: 10px;
+  margin-bottom: 0; }
+
 .boards .board {
   padding-bottom: 30px; }
   .boards .board a {
@@ -2167,6 +2179,9 @@ header {
             #lists-main-view #lists .list .dropdown-list .dropdown li .delete-list {
               float: none;
               font-size: 14px !important; }
+            #lists-main-view #lists .list .dropdown-list .dropdown li:hover {
+              background-color: #298fca;
+              color: #fff; }
         #lists-main-view #lists .list .dropdown-list.open {
           opacity: 1; }
           #lists-main-view #lists .list .dropdown-list.open .dropdown {
