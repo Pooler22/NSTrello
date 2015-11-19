@@ -18,6 +18,63 @@
           .dropdown { display: block;}
         }
       }
+      .flex-title {
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+      }
+      .list-name, .list-editable-icon {
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        box-flex: 1;
+        -webkit-flex: 1;
+        -moz-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+      }
+      .list-name {
+        font-size: 15px;
+        line-height: 18px;
+        margin: 0;
+        min-height: 19px;
+        min-width: 30px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        color: #4d4d4d;
+        padding-bottom: 10px; font-weight: bold;;
+      }
+      .list-editable-icon {
+        max-width: 20px; text-align: right;
+      }
+    }
+    .card-list {
+      .card { white-space: normal!important;
+        cursor: pointer; padding: 7px; border-radius: 3px; background: #fff; border: none; width: 100%;
+        -webkit-box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.35);
+        -moz-box-shadow:    0px 1px 2px 0px rgba(50, 50, 50, 0.35);
+        box-shadow:         0px 1px 2px 0px rgba(50, 50, 50, 0.35); margin-bottom: 6px;
+        &:hover { background: #edeff0; }
+      }
+    }
+    .new-card {
+      > span { color: #8c8c8c; display: block; overflow: hidden; max-height: 0;
+        &:hover { color: #444; }
+      }
+      .form-to-add-new-card { overflow: hidden; max-height: 2000px; transition: all .1s}
+      &.form-hidden { cursor: pointer;
+        > span { display: block; max-height: 2000px;}
+        .form-to-add-new-card { max-height: 0px; }
+      }
+      .card-title { resize: none; min-height: 54px; padding: 7px; border-radius: 3px; background: #fff; border: none; width: 100%;
+        -webkit-box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.35);
+        -moz-box-shadow:    0px 1px 2px 0px rgba(50, 50, 50, 0.35);
+        box-shadow:         0px 1px 2px 0px rgba(50, 50, 50, 0.35);
+      }
     }
   }
 }

@@ -1,18 +1,19 @@
-<div class="list-cards u-fancy-scrollbar u-clearfix list-cards sortable ui-sortable">
+<div class="list-cards u-fancy-scrollbar u-clearfix list-cards sortable ui-sortable form-to-add-new-card">
 
   <form action="/card/create" method="POST" class="form-create-card">
     <div class="card-composer">
       <div class="list-card composer">
         <div class="list-card-details u-clearfix">
           <div class="list-card-labels u-clearfix list-card-composer-labels"></div>
-          <textarea class="list-card-composer-textarea card-title" style="overflow: hidden; word-wrap: break-word; height: 36px;" name="header"></textarea>
+          <textarea class="list-card-composer-textarea card-title" name="header"></textarea>
           <div class="list-card-members list-card-composer-members"></div>
         </div>
       </div>
       <div class="cu-clearfix">
-        <input class="btn green" type="submit" value="Add"><%= list.id %>
+        <input class="btn green" type="submit" value="Add">
         <input type="hidden" class="list-id form-control" name="owner" value="<%= list.id %>">
         <input type="hidden" name="_csrf" value="<%= _csrf %>">
+
         <a class="icon-lg icon-close dark-hover cancel" href="#"></a>
         <a class="cc-opt icon-lg icon-dropdown-menu dark-hover cc-menu" href="#"></a>
       </div>
