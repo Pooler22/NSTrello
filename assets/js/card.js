@@ -14,10 +14,10 @@ $(document).ready(function() {
       },
       success: function(data) {
         if (data.result === true) {
-          console.log('1' + data);
+          console.log(data);
           $(".new-card").append(".card-show");
         } else {
-          console.log('2' + data);
+          console.log(data);
         }
       },
       error: function(result) {
