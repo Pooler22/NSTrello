@@ -83,7 +83,7 @@
       <% } %>
         <% if (!session.authenticated) { %>
 
-            <a class="btn btn-default navbar-btn" style="margin: -2px 0 0;" href="#" data-toggle="modal" data-target="#login">Sign-in</a>
+            <a class="btn green navbar-btn" style="margin: -2px 0 0; padding: 6px 18px;" href="#" data-toggle="modal" data-target="#login">Sign-in</a>
               <!-- Modal -->
               <div id="login" class="modal fade" role="dialog">
                   <div class="modal-dialog">
@@ -100,7 +100,7 @@
                                       <input type="text" placeholder="Email" name="email" class="form-control">
                                       <input type="password" placeholder="Password" name="password" class="form-control">
                                   </div>
-                                  <button type="submit" class="btn green">Sign In</button>
+                                  <input type="submit" class="btn green btn-lg btn-block" value="Sign In">
                                   <input type="hidden" name="_csrf" value="<%= _csrf %>" />
                               </form>
 
