@@ -6,11 +6,11 @@
  */
 
 module.exports = {
-  new: function(req, res) {
+  new: function (req, res) {
     res.view();
   },
 
-  create: function(req, res, next) {
+  create: function (req, res, next) {
     List.create(req.params.all(), function listCreated(err, list) {
       if (err) {
         req.session.flash = {
@@ -21,7 +21,7 @@ module.exports = {
     });
   },
 
-  index: function(req, res, next) {
+  index: function (req, res, next) {
     List.find(function foundLists(err, lists) {
       if (err) return next(err);
       res.view({
@@ -30,7 +30,7 @@ module.exports = {
     });
   },
 
-  edit: function(req, res, next) {
+  edit: function (req, res, next) {
     List.findOne(req.params.id, function foundBoard(err, list) {
       if (err) return next(err);
       if (!list) return next('Brak takiej listy.');
@@ -40,16 +40,16 @@ module.exports = {
     });
   },
 
-  update: function(req, res, next) {
+  update: function (req, res, next) {
     List.update(req.params.id, req.params.all(), function updateBoard(err) {
-      if (err) {
-        return res.redirect('/board/show/' + req.param('owner'));
-      }
-      res.redirect('/board/show/' + req.param('owner'));
+      if (err) next(err);
+      return res.json({
+        result: true
+      });
     });
   },
 
-  destroy: function(req, res, next) {
+  destroy: function (req, res, next) {
     List.findOne(req.param('id'), function foundList(err, list) {
       if (err) return next(err);
       if (!list) return res.notFound();

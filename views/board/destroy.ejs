@@ -1,7 +1,7 @@
 <div style="margin-top: 5px; ">
   <form action="/board/destroy/<%= board.id %>" method="POST">
-    <input type="hidden" name="_method" value="delete">
-    <button type="submit" class="close delete-board">×</button>
-    <input type="hidden" name="_csrf" value="<%= _csrf %>">
+    <input name="_method" type="hidden" value="delete">
+    <button class="close delete-board" type="submit">×</button>
+    <input name="_csrf" type="hidden" value="<%= _csrf %>">
   </form>
 </div>

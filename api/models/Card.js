@@ -15,6 +15,11 @@ module.exports = {
     owner: {
       model: 'list',
       required: true
+    },
+    comments: {
+      collection: 'comment',
+      via: 'owner'
     }
+
   }
 };

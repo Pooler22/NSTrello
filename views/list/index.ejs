@@ -1,6 +1,6 @@
 <div class="col-md-12 col-centered" id="lists-main-view">
   <div id="lists">
-    <div id="lists-content" data-scroll-content style="white-space: nowrap;">
+    <div data-scroll-content id="lists-content" style="white-space: nowrap;">
       <% _.each(lists, function (list) { %>
         <div class="list list-wrapper" data-list-id="<%= list.id %>">
 
@@ -9,43 +9,86 @@
               <%= list.name %>
             </span>
             <i class="fa fa-arrow-circle-o-down dropdown-list list-editable-icon">
-                        <ul class="dropdown">
-                            <li class="rename-list">
-                                <a href="#" ></a>
-                                    Zmień nazwę
-                                </a>
-                            </li>
-                            <li>
-                                <form action="/list/destroy/<%= list.id %>" method="POST" class="delete-list" data-list-id="<%= list.id %>">
-                                    <input type="hidden" name="_method" value="delete">
-                                    <button type="submit" class="close delete-list">Usuń</button>
-                                    <input type="hidden" name="_csrf" value="<%= _csrf %>">
-                                </form>
-                            </li>
-                        </ul>
-            </i>
-          </div>
-
-            <div class="card-list">
-                <%- include ../card/show.ejs%>
-            </div>
-            <%- include ../card/new.ejs %>
+              <ul class="dropdown">
+                <li class="rename-list">
+                  <a href="#"></a>
+                  Zmień nazwę
+                </a>
+              </li>
+              <li>
+                <form action="/list/destroy/<%= list.id %>" class="delete-list" data-list-id="<%= list.id %>" method="POST">
+                  <input name="_method" type="hidden" value="delete">
+                  <button class="close delete-list" type="submit">Delete</button>
+                  <input name="_csrf" type="hidden" value="<%= _csrf %>">
+                </form>
+              </li>
+            </ul>
+          </i>
         </div>
-        <div id="editListName" class="modal fade" role="dialog">
-          <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Rename list</h4>
-              </div>
-              <% include edit.ejs %>
+        <div class="card-list">
+          <%- include ../card/show.ejs%>
+        </div>
+        <%- include ../card/new.ejs %>
+      </div>
+      <div class="modal fade" id="editListName" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" data-dismiss="modal" type="button">&times;</button>
+              <h4 class="modal-title">Rename list</h4>
             </div>
+            <% include edit.ejs %>
           </div>
         </div>
-        <% }) %>
-          <% include new.ejs %>
+      </div>
+    <% }) %>
+    <% include new.ejs %>
+  </div>
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="card-details" role="dialog">
+<div class="modal-dialog">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button class="close" data-dismiss="modal" type="button">&times;</button>
+      <div class="form-edit-card-name title-show">
+        <h4 class="modal-title" id="card-details-title" style="color: #000; cursor: pointer;"></h4>
+        <div class="from-edit-card-name-content">
+          <form action="#" id="change-card-name-form" method="POST">
+            <textarea class="form-control" id="card-details-title-input" name="email"></textarea>
+            <input id="card-details-id" name="card_id" type="hidden" value=""/>
+            <input class="btn green" type="submit" value="Change"/>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <div class="modal-body" id="card-details-content">
+      <div class="card-details-content">
+        <div class="card-details-feed">
+          <div style="text-align: center">
+            <img src="/images/ajax-loader.gif">
+          </div>
+        </div>
+        <div class="card-details-column">
+          <span>Actions</span>
+          <ul>
+            <li class="" data-delate-card-by-id data-dismiss="modal">Delete</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
     </div>
   </div>
+
 </div>

@@ -17,7 +17,6 @@ $(document).ready(function() {
   });
 
   $('.rename-list').click(function() {
-    console.log('lala');
     $('#editListName').modal('show');
   });
 
