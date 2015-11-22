@@ -1,9 +1,55 @@
-<% _.each(lists, function (list) { %>
-    <div class="list col-md-3">
-        <a href="/board/show/<%= list.id %>">
-            <span>Nazwa: <%= list.name %></span>
-            <span>ID: <%= list.id %></span>
-            <span>Owner: <%= list.owner %></span>
-        </a>
+<div class="col-md-12 col-centered" id="lists-main-view">
+  <div id="lists">
+    <div id="lists-content" data-scroll-content style="white-space: nowrap;">
+      <% _.each(lists, function (list) { %>
+        <div class="list list-wrapper" data-list-id="<%= list.id %>">
+
+          <div class="list-header list-header non-empty u-clearfix editable flex-title">
+            <span class="list-name">
+              <%= list.name %>
+            </span>
+            <i class="fa fa-arrow-circle-o-down dropdown-list list-editable-icon">
+                        <ul class="dropdown">
+                            <li class="rename-list">
+                                <a href="#" ></a>
+                                    Zmień nazwę
+                                </a>
+                            </li>
+                            <li>
+                                <form action="/list/destroy/<%= list.id %>" method="POST" class="delete-list" data-list-id="<%= list.id %>">
+                                    <input type="hidden" name="_method" value="delete">
+                                    <button type="submit" class="close delete-list">Usuń</button>
+                                    <input type="hidden" name="_csrf" value="<%= _csrf %>">
+                                </form>
+                            </li>
+                        </ul>
+            </i>
+          </div>
+
+            <div class="card-list">
+                <%- include ../card/show.ejs%>
+            </div>
+          <div class="new-card form-hidden">
+              <span>Add a card</span>
+            <%- include ../card/new.ejs%>
+          </div>
+
+        </div>
+        <div id="editListName" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Rename list</h4>
+              </div>
+              <% include edit.ejs %>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+          <% include new.ejs %>
     </div>
-<% }) %>
+  </div>
+</div>

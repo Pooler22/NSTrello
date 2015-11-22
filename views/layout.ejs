@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>New Sails App</title>
 
@@ -33,6 +34,8 @@
   <link rel="stylesheet" href="/styles/dependencies/bootstrap-theme.min.css">
   <link rel="stylesheet" href="/styles/dependencies/bootstrap.css">
   <link rel="stylesheet" href="/styles/dependencies/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/dependencies/font-awesome.css">
+  <link rel="stylesheet" href="/styles/dependencies/font-awesome.min.css">
   <link rel="stylesheet" href="/styles/importer.css">
   <link rel="stylesheet" href="/styles/style.css">
   <!--STYLES END-->
@@ -40,36 +43,33 @@
 
 <body>
 
-<!--NAV-->
-  <% include nav.ejs %>
+  <!--NAV-->
+  <% include nav/nav.ejs %>
 
-<!--NAV END-->
+    <!--NAV END-->
 
-<div class="container-full">
-    <%- body %>
-</div>
-<div id="modal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div class="container-full">
+      <%- body %>
+    </div>
+    <div id="modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Error</h4>
-            </div>
-            <div class="modal-body clearfix">
-               Ups! Sory... try again, but... maybe later.
-            </div>
-            <div class="modal-footer"></div>
-
-
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Error</h4>
+          </div>
+          <div class="modal-body clearfix">
+            Ups! Sory... try again, but... maybe later.
+          </div>
+          <div class="modal-footer"></div>
         </div>
-
+      </div>
     </div>
-</div>
-<div class="clearfix"></div>
+    <div class="clearfix"></div>
 
-<!--
+    <!--
     Client-side Templates
     ========================
 
@@ -90,12 +90,12 @@
           stringfile before they're served.
 -->
 
-<!--TEMPLATES-->
+    <!--TEMPLATES-->
+    
+    <!--TEMPLATES END-->
 
-<!--TEMPLATES END-->
 
-
-<!--
+    <!--
 
   Client-side Javascript
   ========================
@@ -118,16 +118,19 @@
 
 -->
 
-<!--SCRIPTS-->
-<script src="/js/dependencies/jquery.js"></script>
-<script src="/js/dependencies/jquery.validate.js"></script>
-<script src="/js/dependencies/bootstrap.js"></script>
-<script src="/js/board.js"></script>
-<script src="/js/boardList.js"></script>
-<script src="/js/custom_scroll.js"></script>
-<script src="/js/list.js"></script>
-<script src="/js/validateBoard.js"></script>
-<!--SCRIPTS END-->
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/jquery.js"></script>
+    <script src="/js/dependencies/jquery.validate.js"></script>
+    <script src="/js/dependencies/bootstrap.js"></script>
+    <script src="/js/board.js"></script>
+    <script src="/js/boardList.js"></script>
+    <script src="/js/card.js"></script>
+    <script src="/js/customValidate.js"></script>
+    <script src="/js/custom_scroll.js"></script>
+    <script src="/js/list.js"></script>
+    <script src="/js/validateBoard.js"></script>
+    <!--SCRIPTS END-->
 
 </body>
+
 </html>

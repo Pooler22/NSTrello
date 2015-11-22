@@ -1,0 +1,19 @@
+.register {
+  .form-control { margin-bottom: 10px;
+    &.error { border: 1px solid red; }
+  }
+  label.error { display: none!important; }
+}
+
+.navbar-nav {
+  &.nav {
+    > li {
+      &.user-name {
+        > a { padding: 4px 0 0 0;
+          &:hover { background-color: transparent!important; }
+        }
+      }
+    }
+  .logout { margin-top: -2px; margin-left: 10px; margin-bottom: 0; }
+  }
+}

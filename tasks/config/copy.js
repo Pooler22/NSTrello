@@ -41,7 +41,17 @@ module.exports = function(grunt) {
 				expand: true,
 				cwd: './node_modules/bootstrap/dist/fonts',
 				src: ['**/*'],
-				dest: './assets/fonts/dependencies'
+				dest: './assets/fonts/dependencies/'
+			},{
+				expand: true,
+				cwd: './node_modules/font-awesome/fonts',
+				src: ['**/*'],
+				dest: './assets/fonts/dependencies/'
+			},{
+				expand: true,
+				cwd: './node_modules/font-awesome/css',
+				src: ['**/*'],
+				dest: './assets/styles/dependencies/'
 			},{
 				expand: true,
 				cwd: './assets',

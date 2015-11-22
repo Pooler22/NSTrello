@@ -9,8 +9,8 @@ html {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../fonts/fontawesome-webfont.eot?v=4.4.0');
-  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.4.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.4.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.4.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.4.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular') format('svg');
+  src: url('../fonts/dependencies/fontawesome-webfont.eot?v=4.4.0');
+  src: url('../fonts/dependencies/fontawesome-webfont.eot?#iefix&v=4.4.0') format('embedded-opentype'), url('../fonts/dependencies/fontawesome-webfont.woff2?v=4.4.0') format('woff2'), url('../fonts/dependencies/fontawesome-webfont.woff?v=4.4.0') format('woff'), url('../fonts/dependencies/fontawesome-webfont.ttf?v=4.4.0') format('truetype'), url('../fonts/dependencies/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal; }
 
@@ -2049,6 +2049,22 @@ header {
     text-align: center;
     font-size: 20px; }
 
+.register .form-control {
+  margin-bottom: 10px; }
+  .register .form-control.error {
+    border: 1px solid red; }
+.register label.error {
+  display: none !important; }
+
+.navbar-nav.nav > li.user-name > a {
+  padding: 4px 0 0 0; }
+  .navbar-nav.nav > li.user-name > a:hover {
+    background-color: transparent !important; }
+.navbar-nav.nav .logout {
+  margin-top: -2px;
+  margin-left: 10px;
+  margin-bottom: 0; }
+
 .boards .board {
   padding-bottom: 30px; }
   .boards .board a {
@@ -2163,10 +2179,145 @@ header {
             #lists-main-view #lists .list .dropdown-list .dropdown li .delete-list {
               float: none;
               font-size: 14px !important; }
+            #lists-main-view #lists .list .dropdown-list .dropdown li:hover {
+              background-color: #298fca;
+              color: #fff; }
         #lists-main-view #lists .list .dropdown-list.open {
           opacity: 1; }
           #lists-main-view #lists .list .dropdown-list.open .dropdown {
             display: block; }
+      #lists-main-view #lists .list .flex-title {
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex; }
+      #lists-main-view #lists .list .list-name, #lists-main-view #lists .list .list-editable-icon {
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        box-flex: 1;
+        -webkit-flex: 1;
+        -moz-flex: 1;
+        -ms-flex: 1;
+        flex: 1; }
+      #lists-main-view #lists .list .list-name {
+        font-size: 15px;
+        line-height: 18px;
+        margin: 0;
+        min-height: 19px;
+        min-width: 30px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        color: #4d4d4d;
+        padding-bottom: 10px;
+        font-weight: bold; }
+      #lists-main-view #lists .list .list-editable-icon {
+        max-width: 20px;
+        text-align: right; }
+    #lists-main-view #lists .card-list .card {
+      white-space: normal !important;
+      cursor: pointer;
+      padding: 7px;
+      border-radius: 3px;
+      background: #fff;
+      border: none;
+      width: 100%;
+      -webkit-box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.35);
+      -moz-box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.35);
+      box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.35);
+      margin-bottom: 6px; }
+      #lists-main-view #lists .card-list .card:hover {
+        background: #edeff0; }
+    #lists-main-view #lists .new-card > span {
+      color: #8c8c8c;
+      display: block;
+      overflow: hidden;
+      max-height: 0; }
+      #lists-main-view #lists .new-card > span:hover {
+        color: #444; }
+    #lists-main-view #lists .new-card .form-to-add-new-card {
+      overflow: hidden;
+      max-height: 2000px;
+      transition: all .1s; }
+    #lists-main-view #lists .new-card.form-hidden {
+      cursor: pointer; }
+      #lists-main-view #lists .new-card.form-hidden > span {
+        display: block;
+        max-height: 2000px; }
+      #lists-main-view #lists .new-card.form-hidden .form-to-add-new-card {
+        max-height: 0px; }
+    #lists-main-view #lists .new-card .card-title {
+      resize: none;
+      min-height: 54px;
+      padding: 7px;
+      border-radius: 3px;
+      background: #fff;
+      border: none;
+      width: 100%;
+      -webkit-box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.35);
+      -moz-box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.35);
+      box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.35); }
+
+.card-details-content {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .card-details-content .card-details-feed, .card-details-content .card-details-column {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+  .card-details-content .card-details-column {
+    max-width: 140px; }
+    .card-details-content .card-details-column > span {
+      color: #4d4d4d;
+      font-weight: bold;
+      font-size: 18px; }
+    .card-details-content .card-details-column ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      .card-details-content .card-details-column ul li {
+        width: 140px;
+        border-radius: 3px;
+        background: -webkit-linear-gradient(top, #fff 0, #f8f9f9 100%);
+        background: linear-gradient(to bottom, #fff 0, #f8f9f9 100%);
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        border: 1px solid #e2e4e6;
+        border-bottom-color: #cdd2d4;
+        cursor: pointer;
+        display: block;
+        font-weight: 700;
+        height: 34px;
+        margin-top: 6px;
+        max-width: 300px;
+        overflow: hidden;
+        padding: 7px;
+        position: relative;
+        text-overflow: ellipsis;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        white-space: nowrap; }
+
+.form-edit-card-name h4 {
+  display: none; }
+.form-edit-card-name.title-show h4 {
+  display: block; }
+.form-edit-card-name.title-show form {
+  display: none; }
 
 .custom-scroll {
   margin: 10px 0;
