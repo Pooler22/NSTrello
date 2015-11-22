@@ -1,23 +1,26 @@
-<div class="list-cards u-fancy-scrollbar u-clearfix list-cards sortable ui-sortable form-to-add-new-card">
+<div class="new-card form-hidden">
+  <span>Add a card</span>
+  <div class="list-cards u-fancy-scrollbar u-clearfix list-cards sortable ui-sortable form-to-add-new-card">
 
-  <form action="/card/create" method="POST" class="form-create-card">
-    <div class="card-composer">
-      <div class="list-card composer">
-        <div class="list-card-details u-clearfix">
-          <div class="list-card-labels u-clearfix list-card-composer-labels"></div>
-          <textarea class="list-card-composer-textarea card-title" name="header"></textarea>
-          <div class="list-card-members list-card-composer-members"></div>
+    <form action="/card/create" class="form-create-card" method="POST">
+      <div class="card-composer">
+        <div class="list-card composer">
+          <div class="list-card-details u-clearfix">
+            <div class="list-card-labels u-clearfix list-card-composer-labels"></div>
+            <textarea class="list-card-composer-textarea card-title" name="header"></textarea>
+            <div class="list-card-members list-card-composer-members"></div>
+          </div>
+        </div>
+        <div class="cu-clearfix">
+          <input class="btn green" type="submit" value="Add">
+          <input class="list-id form-control" name="owner" type="hidden" value="<%= list.id %>">
+          <input name="_csrf" type="hidden" value="<%= _csrf %>">
+
+          <a class="icon-lg icon-close dark-hover cancel" href="#"></a>
+          <a class="cc-opt icon-lg icon-dropdown-menu dark-hover cc-menu" href="#"></a>
         </div>
       </div>
-      <div class="cu-clearfix">
-        <input class="btn green" type="submit" value="Add">
-        <input type="hidden" class="list-id form-control" name="owner" value="<%= list.id %>">
-        <input type="hidden" name="_csrf" value="<%= _csrf %>">
+    </form>
 
-        <a class="icon-lg icon-close dark-hover cancel" href="#"></a>
-        <a class="cc-opt icon-lg icon-dropdown-menu dark-hover cc-menu" href="#"></a>
-      </div>
-    </div>
-  </form>
-
+  </div>
 </div>

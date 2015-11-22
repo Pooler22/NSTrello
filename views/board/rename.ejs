@@ -1,20 +1,20 @@
-<div id="editName" class="modal fade" role="dialog">
+<div class="modal fade" id="editName" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button class="close" data-dismiss="modal" type="button">&times;</button>
         <h4 class="modal-title">Rename Board</h4>
       </div>
-      <form action="/board/editAjax/<%= board.id %>" method="post" id="rename-board">
+      <form action="/board/editAjax/<%= board.id %>" id="rename-board" method="POST">
         <div class="form-group">
           <div class="input-group" style="width: 100%;">
             <div class="modal-body clearfix">
-              <input type="text" style="width: 100%;" class="form-control" id="new-name" placeholder="<%= board.name %>">
-              <input type='hidden' name='_csrf' value='<%= _csrf %>'>
+              <input class="form-control" id="new-name-board" placeholder="<%= board.name %>" style="width: 100%;" type="text" value="<%= board.name %>"/>
+              <input name='_csrf' type='hidden' value='<%= _csrf %>'>
             </div>
             <div class="modal-footer">
               <button class="btn green" data-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn green" data-url="">Rename</button>
+              <button class="btn green" data-url="" type="submit">Rename</button>
             </div>
           </div>
         </div>
