@@ -5,20 +5,23 @@
         <button class="close" data-dismiss="modal" type="button">&times;</button>
         <h4 class="modal-title">Rename Board</h4>
       </div>
-      <form action="/board/editAjax/<%= board.id %>" id="rename-board" method="POST">
-        <div class="form-group">
-          <div class="input-group" style="width: 100%;">
+      <div class="form-group">
+        <div class="input-group" style="width: 100%;">
+          <form action="/board/editAjax/<%= board.id %>" id="rename-board" method="POST">
+
             <div class="modal-body clearfix">
               <input class="form-control" id="new-name-board" placeholder="<%= board.name %>" style="width: 100%;" type="text" value="<%= board.name %>"/>
               <input name='_csrf' type='hidden' value='<%= _csrf %>'>
             </div>
+
             <div class="modal-footer">
               <button class="btn green" data-dismiss="modal">Cancel</button>
               <button class="btn green" data-url="" type="submit">Rename</button>
             </div>
-          </div>
+            
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>

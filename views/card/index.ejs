@@ -1,0 +1,42 @@
+<!-- Modal -->
+<div class="modal fade" id="card-details" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal" type="button">&times;</button>
+        <div class="form-edit-card-name title-show">
+          <h4 class="modal-title" id="card-details-title" style="color: #000; cursor: pointer;"></h4>
+          <div class="from-edit-card-name-content">
+            <form action="#" id="change-card-name-form" method="POST">
+              <textarea class="form-control" id="card-details-title-input" name="email"></textarea>
+              <input id="card-details-id" name="card_id" type="hidden" value=""/>
+              <input class="btn green" type="submit" value="Change"/>
+            </form>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-body" id="card-details-content">
+        <div class="card-details-content">
+          <div class="card-details-feed">
+            <div style="text-align: center">
+              <img src="/images/ajax-loader.gif">
+            </div>
+          </div>
+          <div class="card-details-column">
+            <span>Actions</span>
+            <ul>
+              <li class="" data-delate-card-by-id data-dismiss="modal">Delete</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
