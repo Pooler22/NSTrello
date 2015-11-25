@@ -159,10 +159,16 @@ $(document)
           success: function (data) {
             if (data.result === true) {
               console.log(data);
+                var tmpId = 0;
+                $('[data-card-id]').each(function(){
+                    if(tmpId <= $(this).attr('data-card-id') ){
+                        tmpId = $(this).attr('data-card-id');
+                    }
+                });
               $('[data-list-id="' + owner + '"] .card-list')
-                .append('<div class="card">' +
-                  '<input type="hidden" name="owner" value="">' +
-                  '<div class="card-title">' + header + '</div>' +
+                .append('<div class="card open-card-details" data-toggle="modal" data-title="'+header+'" data-target="#card-details" data-card-id="'+(parseInt(tmpId)+1)+'">' +
+                  '<input type="hidden" name="owner" value="'+owner+'">' +
+                  '<div class="card-title" data-name-by-card-id="'+(parseInt(tmpId)+1)+'">' + header + '</div>' +
                   '</div>');
 
               textarea.val("")
