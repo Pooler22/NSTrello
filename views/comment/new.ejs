@@ -1,7 +1,7 @@
 <form action="/comment/create" method="POST">
   <input class="form-control" name="content" placeholder="Add comment..." type="text">
   <input class="form-control" name="owner" type="hidden" value="<%= card.name  %>">
-  <input class="form-control" name="author" type="hidden" value="<%= user.name %>">
+  <input class="form-control" name="author" type="hidden" value="<%= card.name %>">
   <input name="_csrf" type="hidden" value="<%= _csrf %>">
   <button class="btn green" type="submit">Add comment</button>
 </form>

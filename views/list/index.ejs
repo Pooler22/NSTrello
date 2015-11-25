@@ -3,37 +3,16 @@
     <div data-scroll-content id="lists-content" style="white-space: nowrap;">
       <% _.each(lists, function (list) { %>
         <div class="list list-wrapper" data-list-id="<%= list.id %>">
-
-          <div class="list-header list-header non-empty u-clearfix editable flex-title">
-            <span class="list-name">
-              <%= list.name %>
-            </span>
-            <i class="fa fa-arrow-circle-o-down dropdown-list list-editable-icon">
-              <ul class="dropdown">
-                <li class="rename-list" value="<%= list.id %>">
-                  <a href="#" id="modal-id" value="<%= list.id %>"></a>
-                  Rename
-                </a>
-              </li>
-              <li>
-                <form action="/list/destroy/<%= list.id %>" class="delete-list" data-list-id="<%= list.id %>" method="POST">
-                  <input name="_method" type="hidden" value="delete">
-                  <button class="close delete-list" type="submit">Delete</button>
-                  <input name="_csrf" type="hidden" value="<%= _csrf %>">
-                </form>
-              </li>
-            </ul>
-          </i>
+          <%- include edit.ejs %>
+          <div class="card-list">
+            <%- include ../card/index.ejs %>
+          </div>
+          <%- include ../card/new.ejs %>
         </div>
-        <div class="card-list">
-          <%- include ../card/show.ejs%>
-        </div>
-        <%- include ../card/new.ejs %>
-      </div>
-      <% include edit.ejs %>
-
-    <% }) %>
-    <% include new.ejs %>
+        
+        <%- include renameModal.ejs %>
+      <% }) %>
+      <%- include new.ejs %>
+    </div>
   </div>
-</div>
-<% include ../card/index.ejs %>
+</div >

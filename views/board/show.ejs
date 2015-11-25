@@ -1,6 +1,7 @@
-<div class="col-md-12 blue-bg" id="board-view">
+<div class="col-md-9 blue-bg" id="board-view">
   <div class="col-md-12 col-centered" style="padding: 0;">
     <div class="row page-title white">
+
       <h2 class="board-title board-name" data-target="#editName" data-toggle="modal">
         <%= board.name %>
       </h2>
@@ -14,4 +15,7 @@
   <div class="custom-scroll lists-scroll" data-scroll="#lists">
     <div class="custom-scroll-bar" style="width: 0%"></div>
   </div>
+</div>
+<div class="col-md-3">
+  <% include activity.ejs %>
 </div>
