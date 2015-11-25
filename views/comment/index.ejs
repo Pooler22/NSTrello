@@ -1,0 +1,7 @@
+<% _.each(comments, function (comment) { %>
+  <% if(comment.owner == card.id ){ %>
+    <%= comment.author %>
+    <%= comment.content %>
+  <% } %>
+<% }) %>
+<%- include new.ejs %>

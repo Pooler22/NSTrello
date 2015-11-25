@@ -7,11 +7,11 @@
 
 module.exports = {
   //loads add-booard form -> new.ejs
-  new: function(req, res) {
+  new: function (req, res) {
     res.view();
   },
 
-  create: function(req, res, next) {
+  create: function (req, res, next) {
     Board.create(req.params.all(), function boardCreated(err, board) {
       sails.log.error(req.params.all());
       if (err) {
@@ -24,34 +24,48 @@ module.exports = {
     });
   },
 
-  show: function(req, res, next) {
+  show: function (req, res, next) {
     Board.findOne(req.params.id, function foundBoard(err, board) {
       if (err) return next(err);
       if (!board) return next();
-      List.find().where({
-        owner: req.params.id
-      }).exec(function foundList(err, lists) {
-        if (err) return next(err);
-        var ids = [];
-        for (var i = 0, len = lists.length; i < len; i++) {
-          ids[i] = lists[i].id;
-        }
-        Card.find().where({
-          owner: ids
-        }).exec(function foundCards(err, cards) {
+      List.find()
+        .where({
+          owner: req.params.id
+        })
+        .exec(function foundList(err, lists) {
           if (err) return next(err);
-          sails.log.error(cards);
-          res.view({
-            board: board,
-            lists: lists,
-            cards: cards
-          });
+          var ids = [];
+          for (var i = 0, len = lists.length; i < len; i++) {
+            ids[i] = lists[i].id;
+          }
+          Card.find()
+            .where({
+              owner: ids
+            })
+            .exec(function foundCards(err, cards) {
+              if (err) return next(err);
+              sails.log.error(cards);
+
+              Comment.find()
+                // .where({
+                //   owner: ids
+                // })
+                .exec(function foundComments(err, comments) {
+                  if (err) return next(err);
+                  
+                  res.view({
+                    board: board,
+                    lists: lists,
+                    cards: cards,
+                    comments: comments
+                  });
+                });
+            });
         });
-      });
     });
   },
 
-  index: function(req, res, next) {
+  index: function (req, res, next) {
     Board.find(function foundBoards(err, boards) {
       if (err) return next(err);
       res.view({
@@ -60,7 +74,7 @@ module.exports = {
     });
   },
 
-  edit: function(req, res, next) {
+  edit: function (req, res, next) {
     Board.findOne(req.params.id, function foundBoard(err, board) {
       if (err) return next(err);
       if (!board) return next('Brak takiej tablicy.');
@@ -70,7 +84,7 @@ module.exports = {
     });
   },
 
-  editAjax: function(req, res, next) {
+  editAjax: function (req, res, next) {
     console.log('editAjax ' + req.params.id);
     console.log(req.params.all());
     Board.update(req.params.id, req.params.all(), function updateBoard(err) {
@@ -85,7 +99,7 @@ module.exports = {
     });
   },
 
-  update: function(req, res, next) {
+  update: function (req, res, next) {
     Board.update(req.params.id, req.params.all(), function updateBoard(err) {
       if (err) {
         return res.redirect('/board/edit/' + req.param('id'));
@@ -94,7 +108,7 @@ module.exports = {
     });
   },
 
-  destroy: function(req, res, next) {
+  destroy: function (req, res, next) {
     Board.findOne(req.param('id'), function foundBoard(err, board) {
       if (err) return next(err);
       if (!board) return next('Brak takiej tablicy.');
