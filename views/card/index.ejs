@@ -1,6 +1,6 @@
 <% _.each(cards, function (card) { %>
   <% if(card.owner == list.id ){ %>
-    <div class="card open-card-details" data-card-id="<%= card.id %>" data-target="#card-details" data-title="<%= card.header %>" data-toggle="modal">
+    <div  class="card open-card-details" data-card-id="<%= card.id %>" data-target="#card-details" data-title="<%= card.header %>" data-toggle="modal">
       <input name="owner" type="hidden" value="<%= card.owner %>">
       <div class="card-title" data-name-by-card-id="<%= card.id %>"><%= card.header %></div>
     </div>

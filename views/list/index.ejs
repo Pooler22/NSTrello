@@ -4,12 +4,12 @@
       <% _.each(lists, function (list) { %>
         <div class="list list-wrapper" data-list-id="<%= list.id %>">
           <%- include edit.ejs %>
-          <div class="card-list">
+          <div id="card"  class="card-list">
             <%- include ../card/index.ejs %>
           </div>
           <%- include ../card/new.ejs %>
         </div>
-        
+
         <%- include renameModal.ejs %>
       <% }) %>
       <%- include new.ejs %>
