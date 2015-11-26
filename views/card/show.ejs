@@ -10,7 +10,7 @@
           <h4 class="modal-title" id="card-details-title" style="color: #000; cursor: pointer;"></h4>
           <div class="from-edit-card-name-content">
             <form action="#" id="change-card-name-form" method="POST">
-              <textarea class="form-control" id="card-details-title-input" name="email"></textarea>
+              <textarea class="form-control textarea" id="card-details-title-input" name="email" style="max-width: 90%;"></textarea>
               <input id="card-details-id" name="card_id" type="hidden" value=""/>
               <input class="btn green" type="submit" value="Change"/>
             </form>
@@ -21,7 +21,13 @@
         <div class="card-details-content">
           <div class="card-details-feed">
 
-
+            <div>
+                <h5>Dodaj komentarz</h5>
+                <form action="/comment/create" class="form-create-comment" method="POST">
+                    <textarea name="text" class="textarea" placeholder="Treść komentarz"></textarea>
+                    <button class="btn green" type="submit">Close</button>
+                </form>
+            </div>
 
           </div>
 

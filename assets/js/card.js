@@ -1,9 +1,7 @@
 $(document)
   .ready(function () {
     var el = document.getElementById('card');
-    var sortable = Sortable.create(el, {
-      animation: 150
-    });
+
     //Edycja
     $('#card-details-title')
       .click(function () {
@@ -31,31 +29,23 @@ $(document)
           .data('card-id'));
       });
 
-    $('#change-card-name-form')
-      .submit(function (e) {
-        var text = $('#card-details-title-input')
-          .val();
-        var id = $('#card-details-id')
-          .val();
-        $('.form-edit-card-name')
-          .addClass('title-show');
+    $('#change-card-name-form').submit(function (e) {
+        var text = $('#card-details-title-input').val();
+        var id = $('#card-details-id').val();
+        $('.form-edit-card-name').addClass('title-show');
         console.log(id + " " + text);
 
         //send
-        $('#card-details-title')
-          .html(text);
-        $('[data-name-by-card-id="' + id + '"]')
-          .html(text);
+        $('#card-details-title').html(text);
+        $('[data-name-by-card-id="' + id + '"]').html(text);
 
         e.preventDefault();
         var url = '/';
-
-        /*$.ajax({
+        $.ajax({
             type: "POST",
-            url: url,
+            url: '/card/update/'+id,
             data: {
-                header: textarea.val(),
-                owner: owner
+                header: text
             },
             success: function(data) {
                 if (data.result === true) {
@@ -69,7 +59,7 @@ $(document)
                 console.log(data);
                 // $('#modal').modal('show');
             }
-        });*/
+        });
         e.preventDefault(); // avoid to execute the actual submit of the form.
       });
 
@@ -78,7 +68,7 @@ $(document)
       .click(function () {
         var id = $('#card-details-id').val();
         $('[data-card-id="' + id + '"]').remove();
-    console.log('delete '+id);
+            console.log('delete '+id);
         $.ajax({
          type: "POST",
          url: '/card/destroy/'+id,
