@@ -10,23 +10,35 @@ $(document)
           .removeClass('title-show');
       });
 
-    $(document)
-      .on('click', '.open-card-details', function () {
-        console.log($(this)
-          .data('title'));
-        $('.form-edit-card-name')
-          .addClass('title-show');
-        $('#card-details-title')
-          .html($(this)
-            .data('title'));
-        $('#card-details-title-input')
-          .val($(this)
-            .data('title'));
-        $('#card-details-id')
-          .val($(this)
-            .data('card-id'));
-        console.log($(this)
-          .data('card-id'));
+    $(document).on('click', '.open-card-details', function () {
+        console.log($(this).data('title'));
+        $('.form-edit-card-name').addClass('title-show');
+        $('#card-details-title').html($(this).data('title'));
+        $('#card-details-title-input').val($(this).data('title'));
+        $('#card-details-id').val($(this).data('card-id'));
+        console.log($(this).data('card-id'));
+        $('#modal-owner').val($(this).data('owner'));
+        $('#form-create-comment textarea').val('');
+        $('#comments-list').html("");
+
+        $.ajax({
+            type: "POST",
+            url: '/comment/show/'+$(this).data('card-id'),
+            data: {
+                cos: 'cos'
+            },
+            success: function(data) {
+                $.each(data.result, function(i, row) {
+                    $('#comments-list').append('<div class="comment">'+this.comment+'' +
+                    '<p>'+this.author+'</p>' +
+                    '<span>'+this.updatedAt+'</span>' +
+                    '</div>');
+                });
+            },
+            error: function(result) {
+                console.log(data);
+            }
+        });
       });
 
     $('#change-card-name-form').submit(function (e) {
@@ -61,7 +73,7 @@ $(document)
             }
         });
         e.preventDefault(); // avoid to execute the actual submit of the form.
-      });
+    });
 
     //remove
     $('[data-delate-card-by-id]')

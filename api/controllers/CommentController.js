@@ -13,15 +13,31 @@ module.exports = {
   create: function (req, res, next) {
     Comment.create(req.params.all(), function commentCreated(err, comment) {
       if (err) {
-        req.session.flash = {
-          err: err
-        };
+          return res.json({
+              result: err
+          });
       }
       return res.json({
-        result: comment
+        result: true
       });
     });
   },
+
+    show: function (req, res, next) {
+        Comment.find().where({ cardId: req.params.id }).exec(function(err, comments) {
+            if (err) {
+                return res.json({
+                    result: err
+                });
+            }
+            return res.json({
+                result: comments
+            });
+
+        });
+    },
+
+
 
   index: function (req, res, next) {
     Comment.find(function foundComments(err, comments) {

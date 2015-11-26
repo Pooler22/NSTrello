@@ -20,12 +20,13 @@
       <div class="modal-body" id="card-details-content">
         <div class="card-details-content">
           <div class="card-details-feed">
-
+            <input type="hidden" id="modal-owner" name="owner">
             <div>
-                <h5>Dodaj komentarz</h5>
-                <form action="/comment/create" class="form-create-comment" method="POST">
-                    <textarea name="text" class="textarea" placeholder="Treść komentarz"></textarea>
-                    <button class="btn green" type="submit">Close</button>
+                <div id="comments-list"></div>
+                <form action="/comment/create" class="form-create-comment" method="POST" id="form-create-comment">
+                    <input type="hidden" id="author-name" value="<%= session.User.name %>">
+                    <textarea name="text" class="textarea" placeholder="Write something..."></textarea>
+                    <button class="btn green" type="submit">Add comment</button>
                 </form>
             </div>
 
