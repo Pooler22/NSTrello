@@ -76,31 +76,26 @@ $(document)
     //remove
     $('[data-delate-card-by-id]')
       .click(function () {
-        var id = $('#card-details-id')
-          .val();
-        $('[data-card-id="' + id + '"]')
-          .remove();
+        var id = $('#card-details-id').val();
+        $('[data-card-id="' + id + '"]').remove();
 
-        /*$.ajax({
+        $.ajax({
          type: "POST",
-         url: url,
-         data: {
-         header: textarea.val(),
-         owner: owner
-         },
+         url: '/card/destroy',
+         data: {},
          success: function(data) {
-         if (data.result === true) {
-         console.log(data);
+             if (data.result === true) {
+                console.log(data);
 
-         } else {
-         console.log(data);
-         }
+             } else {
+                console.log(data);
+             }
          },
          error: function(result) {
-         console.log(data);
-         // $('#modal').modal('show');
-         }
-         });*/
+             console.log(data);
+             // $('#modal').modal('show');
+             }
+         });
       });
 
     //new
