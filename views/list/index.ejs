@@ -1,16 +1,49 @@
 <div class="col-md-12 col-centered" id="lists-main-view">
   <div id="lists">
     <div data-scroll-content id="lists-content" style="white-space: nowrap;">
-      <% _.each(lists, function (list) { %>
-        <div class="list list-wrapper" data-list-id="<%= list.id %>">
-          <%- include edit.ejs %>
-          <div id="card"  class="card-list">
-            <%- include ../card/index.ejs %>
-          </div>
-          <%- include ../card/new.ejs %>
-        </div>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <style>
+            #sortable1, #sortable2, .list-sortable {
+                width: 100%;
+                list-style-type: none;
+                float: left;
+                margin: 0;
+                padding: 0;
+            }
+            #sortable1 li, #sortable2 li {
 
-        <%- include renameModal.ejs %>
+            }
+            .new-card { clear: both; }
+        </style>
+        <script>
+            $(function() {
+                $( ".list-sortable" ).sortable({
+                    connectWith: ".connectedSortable"
+                    /*update: function (event, ui) {
+                        var data = $(this).sortable('serialize');
+
+                        // POST to server using $.post or $.ajax
+                        $.ajax({
+                            data: data,
+                            type: 'POST',
+                            url: '/your/url/here'
+                        });
+                    }*/
+                }).disableSelection();
+            });
+        </script>
+      <% _.each(lists, function (list) { %>
+            <div class="list list-wrapper" data-list-id="<%= list.id %>">
+                <%- include edit.ejs %>
+                <div id="card"  class="card-list">
+                    <ul class="connectedSortable list-sortable">
+                    <%- include ../card/index.ejs %>
+                    </ul>
+                </div>
+                <%- include ../card/new.ejs %>
+            </div>
+            <%- include renameModal.ejs %>
       <% }) %>
       <%- include new.ejs %>
     </div>

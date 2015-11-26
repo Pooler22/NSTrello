@@ -165,7 +165,7 @@ $(document)
                         tmpId = $(this).attr('data-card-id');
                     }
                 });
-              $('[data-list-id="' + owner + '"] .card-list')
+              $('[data-list-id="' + owner + '"] .card-list ul')
                 .append('<div class="card open-card-details" data-toggle="modal" data-title="'+header+'" data-target="#card-details" data-card-id="'+(parseInt(tmpId)+1)+'">' +
                   '<input type="hidden" name="owner" value="'+owner+'">' +
                   '<div class="card-title" data-name-by-card-id="'+(parseInt(tmpId)+1)+'">' + header + '</div>' +
