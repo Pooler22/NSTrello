@@ -41,7 +41,8 @@ $(document).ready(function(){
                 if(imageType.indexOf(ext) > -1){
                     console.log('mamy obrazek');
                     $('#form-create-comment textarea').val('');
-                    $('#comments-list').append('<div class="comment"><img src="'+e.target.result+'" style="width: 100px; max-height: 200px;">' +
+                    $('#comments-list').append('<div class="comment">' +
+                    '<a href="'+e.target.result+'" target="_blank"><img src="'+e.target.result+'" style="max-width: 400px; max-height: 600px;"></a>' +
                     '<p>'+$('#author-name').val()+'</p>' +
                     '<span>Przed chwilą</span>' +
                     '</div>');
@@ -49,7 +50,7 @@ $(document).ready(function(){
                 if(pdf.indexOf(ext) > -1){
                     $('#form-create-comment textarea').val('');
                     $('#comments-list').append('<div class="comment">' +
-                    '<a href="' +e.target.result+'" style="display: block; text-align: center;">'+
+                    '<a href="' +e.target.result+'" style="display: block; text-align: center;" target="_blank">'+
                         '<img src="/images/pdf-icon.png" style="max-height: 64px;">' +
                     '</a>' +
                     '<p>'+$('#author-name').val()+'</p>' +
@@ -59,7 +60,7 @@ $(document).ready(function(){
                 if(word.indexOf(ext) > -1){
                     console.log('mamy worda');
                     $('#comments-list').append('<div class="comment">' +
-                    '<a href="' +e.target.result+'" style="display: block; text-align: center;">'+
+                    '<a href="' +e.target.result+'" style="display: block; text-align: center;" target="_blank">'+
                     '<img src="/images/word.png" style="max-height: 64px;">' +
                     '</a>' +
                     '<p>'+$('#author-name').val()+'</p>' +
