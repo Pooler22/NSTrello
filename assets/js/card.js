@@ -78,10 +78,10 @@ $(document)
       .click(function () {
         var id = $('#card-details-id').val();
         $('[data-card-id="' + id + '"]').remove();
-
+    console.log('delete '+id);
         $.ajax({
          type: "POST",
-         url: '/card/destroy',
+         url: '/card/destroy/'+id,
          data: {},
          success: function(data) {
              if (data.result === true) {

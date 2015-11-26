@@ -57,7 +57,7 @@ module.exports = {
       if (err) return next(err);
       if (!card) return res.notFound();
       console.log(card);
-      card.destroy(req.param('id'), function cardDestroyed(err) {
+      Card.destroy(req.param('id'), function cardDestroyed(err) {
         if (err) return next(err);
         if (!card) return res.notFound();
         return res.json({
