@@ -6,113 +6,115 @@
         <i class="fa fa-trello"></i>
         <span>Boards</span>
       </a>
-      <% } %>
+    <% } %>
 
-        <% if (!session.authenticated) {
+    <% if (!session.authenticated) {
         ///user/new %>
-          <a href="#" data-toggle="modal" data-target="#register">
-            <i class="fa fa-sign-in"></i>
-            <span>Sign Up</span>
-          </a>
+    <a data-target="#register" data-toggle="modal" href="#">
+      <i class="fa fa-sign-in"></i>
+      <span>Sign Up</span>
+    </a>
 
-          <!-- Modal -->
-          <div id="register" class="modal fade" role="dialog">
-              <div class="modal-dialog">
+    <!-- Modal -->
+    <div class="modal fade" id="register" role="dialog">
+      <div class="modal-dialog">
 
-                  <!-- Modal content-->
-                  <div class="modal-content register">
-                      <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title"  style="color: #000;">Create an account</h4>
-                      </div>
-                      <div class="modal-body">
-                          <form action="/user/create" method="POST" id="sign-up-form" class="form-signin">
-
-                              <div class="control-group">
-                                  <input type="text" class="form-control" placeholder="Your name" name="name">
-                              </div>
-
-                              <div class="control-group">
-                                  <input type="text" class="form-control" placeholder="Your title" name="title">
-                              </div>
-
-                              <div class="control-group">
-                                  <input type="text" class="form-control" placeholder="Email address" name="email">
-                              </div>
-
-                              <div class="control-group">
-                                  <input type="password" class="form-control" placeholder="Password" name="password" id="password">
-                              </div>
-
-                              <div class="control-group">
-                                  <input type="password" class="form-control" placeholder="Password confirmation" name="confirmation">
-                                  <br />
-                              </div>
-
-                              <input type="submit" class="btn btn-lg btn-primary btn-block" value="Create Account" />
-                              <input type="hidden" name="_csrf" value="<%= _csrf %>" />
-                          </form>
-
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      </div>
-                  </div>
-
-              </div>
+        <!-- Modal content-->
+        <div class="modal-content register">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal" type="button">&times;</button>
+            <h4 class="modal-title" style="color: #000;">Create an account</h4>
           </div>
-      <% } %>
-  </div>
-  <a href="/">
-    <img class="logo" src="/images/logo.png" />
-  </a>
+          <div class="modal-body">
+            <form action="/user/create" class="form-signin" id="sign-up-form" method="POST">
 
-  <div class="pull-right">
-    <% if (session.authenticated) { %>
-      <ul class="nav navbar-nav">
-        <li class="active user-name">
-          <a href="/user/show/<%= session.User.id %>">
-            <%= session.User.name %>
-          </a>
-        </li>
-        <a class="btn btn-default navbar-btn logout" href="/session/destroy">Sign-out</a>
-        <% } %>
-          <% if (session.authenticated && session.User.admin) { %>
-            <li><a href="/user">User Administration</a></li>
-      </ul>
-      <% } %>
-        <% if (!session.authenticated) { %>
-
-            <a class="btn green navbar-btn" style="margin: -2px 0 0; padding: 6px 18px;" href="#" data-toggle="modal" data-target="#login">Sign-in</a>
-              <!-- Modal -->
-              <div id="login" class="modal fade" role="dialog">
-                  <div class="modal-dialog">
-
-                      <!-- Modal content-->
-                      <div class="modal-content register">
-                          <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                              <h4 class="modal-title"  style="color: #000;">Sing in</h4>
-                          </div>
-                          <div class="modal-body">
-                              <form action="/session/create">
-                                  <div>
-                                      <input type="text" placeholder="Email" name="email" class="form-control">
-                                      <input type="password" placeholder="Password" name="password" class="form-control">
-                                  </div>
-                                  <input type="submit" class="btn green btn-lg btn-block" value="Sign In">
-                                  <input type="hidden" name="_csrf" value="<%= _csrf %>" />
-                              </form>
-
-                          </div>
-                          <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          </div>
-                      </div>
-
-                  </div>
+              <div class="control-group">
+                <input class="form-control" name="name" placeholder="Your name" type="text">
               </div>
 
-          <% } %>
-  </div>
+              <div class="control-group">
+                <input class="form-control" name="title" placeholder="Your title" type="text">
+              </div>
+
+              <div class="control-group">
+                <input class="form-control" name="email" placeholder="Email address" type="text">
+              </div>
+
+              <div class="control-group">
+                <input class="form-control" id="password" name="password" placeholder="Password" type="password">
+              </div>
+
+              <div class="control-group">
+                <input class="form-control" name="confirmation" placeholder="Password confirmation" type="password">
+                <br/>
+              </div>
+
+              <input class="btn btn-lg btn-primary btn-block" type="submit" value="Create Account"/>
+              <input name="_csrf" type="hidden" value="<%= _csrf %>"/>
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <% } %>
+</div>
+<a href="/">
+  <img class="logo" src="/images/logo.png"/>
+</a>
+
+<div class="pull-right">
+  <% if (session.authenticated) { %>
+    <ul class="nav navbar-nav">
+      <li class="active user-name">
+        <a href="/user/show/<%= session.User.id %>">
+          <%= session.User.name %>
+        </a>
+      </li>
+      <a class="btn btn-default navbar-btn logout" href="/session/destroy">Sign-out</a>
+    <% } %>
+    <% if (session.authenticated && session.User.admin) { %>
+      <li>
+        <a href="/user">User Administration</a>
+      </li>
+    </ul>
+  <% } %>
+  <% if (!session.authenticated) { %>
+
+    <a class="btn green navbar-btn" data-target="#login" data-toggle="modal" href="#" style="margin: -2px 0 0; padding: 6px 18px;">Sign-in</a>
+    <!-- Modal -->
+    <div class="modal fade" id="login" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content register">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal" type="button">&times;</button>
+            <h4 class="modal-title" style="color: #000;">Sing in</h4>
+          </div>
+          <div class="modal-body">
+            <form action="/session/create">
+              <div>
+                <input class="form-control" name="email" placeholder="Email" type="text">
+                <input class="form-control" name="password" placeholder="Password" type="password">
+              </div>
+              <input class="btn green btn-lg btn-block" type="submit" value="Sign In">
+              <input name="_csrf" type="hidden" value="<%= _csrf %>"/>
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  <% } %>
+</div>
 </header>

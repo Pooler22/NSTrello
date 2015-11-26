@@ -1,9 +1,9 @@
-<form action="/user/update/<%= user.id %>" method="POST" class="form-signin">
-	<h2>Editing a user</h2>
+<form action="/user/update/<%= user.id %>" class="form-signin" method="POST">
+  <h2>Editing a user</h2>
 
-	<input value="<%= user.name %>" name="name" type="text" class="form-control" />
-	<input value="<%= user.title %>" name="title" type="text" class="form-control" />
-	<input value="<%= user.email %>" name="email" type="text" class="form-control" />
-	<input type="submit" value="Proceed" class="btn btn-lg btn-primary btn-block" />
-	<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+  <input class="form-control" name="name" type="text" value="<%= user.name %>"/>
+  <input class="form-control" name="title" type="text" value="<%= user.title %>"/>
+  <input class="form-control" name="email" type="text" value="<%= user.email %>"/>
+  <input class="btn btn-lg btn-primary btn-block" type="submit" value="Proceed"/>
+  <input name="_csrf" type="hidden" value="<%= _csrf %>"/>
 </form>

@@ -33,3 +33,60 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+.textarea {
+  resize: none;
+  min-height: 54px;
+  padding: 7px;
+  border-radius: 3px;
+  background: #fff;
+  border: none;
+  width: 100%;
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.35);
+  -moz-box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.35);
+  box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.35);
+  display: block;
+}
+#comments-list { margin-bottom: 15px;
+  .comment {
+    white-space: normal;
+    word-break: break-all;
+    padding: 7px;
+    font-size: 14px;
+    font-style: italic;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    background: #fff;
+    border: none;
+    width: 100%;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.35);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.35);
+    box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.35);
+    display: block;
+    p { font-weight: bold; font-size: 12px; padding: 0; margin: 0; font-style: normal;}
+    span { color: #AFAFAF; font-size: 12px; font-style: normal;}
+  }
+}
+
+.modal-content {
+  background: #edeff0;
+}
+
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+}
+.fileUpload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+#my-form { float: right; margin-top: -35px;
+  .btn { margin: 0; }
+}

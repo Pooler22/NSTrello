@@ -44,12 +44,32 @@ module.exports = {
   },
 
   update: function(req, res, next) {
-    Card.update(req.params.id, req.params.all(), function updatelist(err) {
+      Card.findOne(req.param('id'), function foundcard(err, card) {
+          if (err) return next(err);
+          if (!card) return res.notFound();
+          console.log(card);
+          Card.update(req.params.id, req.params.all(), function updateBoard(err) {
+              if (err) {
+                  return res.json({
+                      result: false
+                  });
+              }
+              return res.json({
+                  result: true
+              });
+          });
+
+      });
+    /*Card.update(req.params.id, req.params.all(), function updatelist(err) {
       if (err) {
-        return res.redirect('/list/show/' + req.param('owner'));
+          return res.json({
+              result: false
+          });
       }
-      res.redirect('/list/show/' + req.param('owner'));
-    });
+        return res.json({
+            result: true
+        });
+    });*/
   },
 
   destroy: function(req, res, next) {
@@ -57,7 +77,7 @@ module.exports = {
       if (err) return next(err);
       if (!card) return res.notFound();
       console.log(card);
-      card.destroy(req.param('id'), function cardDestroyed(err) {
+      Card.destroy(req.param('id'), function cardDestroyed(err) {
         if (err) return next(err);
         if (!card) return res.notFound();
         return res.json({

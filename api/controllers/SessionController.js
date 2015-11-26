@@ -63,10 +63,10 @@ module.exports = {
             action: ' has logged in.'
           });
           if (req.session.User.admin) {
-            res.redirect('/user');
+            res.redirect('/bard');
             return;
           }
-          res.redirect('/user/show/' + user.id);
+          res.redirect('/board');
         });
       });
     });

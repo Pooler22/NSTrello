@@ -1,12 +1,58 @@
-<% _.each(cards, function (card) { %>
-  <% if(card.owner == list.id ){ %>
-    <div class="card open-card-details"
-         data-card-id="<%= card.id %>"
-         data-title="<%= card.header %>"
-         data-toggle="modal"
-         data-target="#card-details">
-        <input type="hidden" name="owner" value="<%= card.owner %>">
-        <div class="card-title" data-name-by-card-id="<%= card.id %>"><%= card.header %></div>
+<!-- Modal -->
+<div class="modal fade" id="card-details" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal" type="button">&times;</button>
+        <div class="form-edit-card-name title-show">
+          <h4 class="modal-title" id="card-details-title" style="color: #000; cursor: pointer; white-space: normal; "></h4>
+          <div class="from-edit-card-name-content">
+            <form action="#" id="change-card-name-form" method="POST">
+              <textarea class="form-control textarea" id="card-details-title-input" name="email" style="max-width: 90%;"></textarea>
+              <input id="card-details-id" name="card_id" type="hidden" value=""/>
+              <input class="btn green" type="submit" value="Change"/>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body" id="card-details-content">
+        <div class="card-details-content">
+          <div class="card-details-feed">
+            <input type="hidden" id="modal-owner" name="owner">
+            <div>
+                <div id="comments-list"></div>
+                <div style="padding: 5px; text-align: center; display: none;" id="loader-gif">
+                    <div style="display: inline-block; background: #fff; padding: 4px; border-radius: 6px;"><img src="/images/ajax-loader.gif"/></div>
+                </div>
+                <form action="/comment/create" class="form-create-comment" method="POST" id="form-create-comment">
+                    <input type="hidden" id="author-name" value="<%= session.User.name %>">
+                    <textarea name="text" class="textarea" placeholder="Write something..."></textarea>
+                    <button class="btn green" type="submit">Add comment</button>
+                </form>
+                <form action="http://localhost:1337/file/upload" enctype="multipart/form-data" method="post" id="my-form">
+                    <div class="fileUpload btn btn-default">
+                        <span>Upload file</span>
+                        <input type="file" name="file" class="upload" id="input-with-file"><br>
+                    </div>
+                </form>
+            </div>
+
+          </div>
+
+          <div class="card-details-column">
+            <span>Actions</span>
+            <ul>
+              <li class="" data-delate-card-by-id data-dismiss="modal">Delete</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+      </div>
     </div>
-    <% } %>
-      <% }) %>
+  </div>
+</div>

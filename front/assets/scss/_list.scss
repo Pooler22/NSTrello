@@ -87,6 +87,10 @@
   display: -ms-flexbox;
   display: flex;
 
+  .card-details-feed {
+    padding-right: 20px;
+  }
+
   .card-details-feed, .card-details-column {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;

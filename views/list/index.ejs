@@ -1,55 +1,52 @@
 <div class="col-md-12 col-centered" id="lists-main-view">
   <div id="lists">
-    <div id="lists-content" data-scroll-content style="white-space: nowrap;">
+    <div data-scroll-content id="lists-content" style="white-space: nowrap;">
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <style>
+            #sortable1, #sortable2, .list-sortable {
+                width: 100%;
+                list-style-type: none;
+                float: left;
+                margin: 0;
+                padding: 0;
+            }
+            #sortable1 li, #sortable2 li {
+
+            }
+            .new-card { clear: both; }
+        </style>
+        <script>
+            $(function() {
+                $( ".list-sortable" ).sortable({
+                    connectWith: ".connectedSortable"
+                    /*update: function (event, ui) {
+                        var data = $(this).sortable('serialize');
+
+                        // POST to server using $.post or $.ajax
+                        $.ajax({
+                            data: data,
+                            type: 'POST',
+                            url: '/your/url/here'
+                        });
+                    }*/
+                }).disableSelection();
+            });
+        </script>
       <% _.each(lists, function (list) { %>
-        <div class="list list-wrapper" data-list-id="<%= list.id %>">
-
-          <div class="list-header list-header non-empty u-clearfix editable flex-title">
-            <span class="list-name">
-              <%= list.name %>
-            </span>
-            <i class="fa fa-arrow-circle-o-down dropdown-list list-editable-icon">
-                        <ul class="dropdown">
-                            <li class="rename-list">
-                                <a href="#" ></a>
-                                    Zmień nazwę
-                                </a>
-                            </li>
-                            <li>
-                                <form action="/list/destroy/<%= list.id %>" method="POST" class="delete-list" data-list-id="<%= list.id %>">
-                                    <input type="hidden" name="_method" value="delete">
-                                    <button type="submit" class="close delete-list">Usuń</button>
-                                    <input type="hidden" name="_csrf" value="<%= _csrf %>">
-                                </form>
-                            </li>
-                        </ul>
-            </i>
-          </div>
-
-            <div class="card-list">
-                <%- include ../card/show.ejs%>
+            <div class="list list-wrapper" data-list-id="<%= list.id %>">
+                <%- include edit.ejs %>
+                <div id="card"  class="card-list">
+                    <ul class="connectedSortable list-sortable">
+                    <%- include ../card/index.ejs %>
+                    </ul>
+                </div>
+                <%- include ../card/new.ejs %>
             </div>
-          <div class="new-card form-hidden">
-              <span>Add a card</span>
-            <%- include ../card/new.ejs%>
-          </div>
-
-        </div>
-        <div id="editListName" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Rename list</h4>
-              </div>
-              <% include edit.ejs %>
-            </div>
-          </div>
-        </div>
-        <% }) %>
-          <% include new.ejs %>
+            <%- include renameModal.ejs %>
+      <% }) %>
+        <%- include ../card/show.ejs %>
+      <%- include new.ejs %>
     </div>
   </div>
-</div>
+</div >

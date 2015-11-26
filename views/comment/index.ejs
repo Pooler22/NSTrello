@@ -1,0 +1,14 @@
+<h4>Comments</h4>
+<hr class="board-menu-header-divider">
+<ul>
+  <% _.each(comments, function (comment) { %>
+    <% if(comment.owner == card.id ){ %>
+      <li>
+        <%= comment.author %>
+        <%= comment.content %>
+        <%- include edit.ejs %>
+      </li>
+    <% } %>
+  <% }) %>
+</ul>
+<%- include new.ejs %>
