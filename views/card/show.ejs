@@ -23,10 +23,19 @@
             <input type="hidden" id="modal-owner" name="owner">
             <div>
                 <div id="comments-list"></div>
+                <div style="padding: 5px; text-align: center; display: none;" id="loader-gif">
+                    <div style="display: inline-block; background: #fff; padding: 4px; border-radius: 6px;"><img src="/images/ajax-loader.gif"/></div>
+                </div>
                 <form action="/comment/create" class="form-create-comment" method="POST" id="form-create-comment">
                     <input type="hidden" id="author-name" value="<%= session.User.name %>">
                     <textarea name="text" class="textarea" placeholder="Write something..."></textarea>
                     <button class="btn green" type="submit">Add comment</button>
+                </form>
+                <form action="http://localhost:1337/file/upload" enctype="multipart/form-data" method="post" id="my-form">
+                    <div class="fileUpload btn btn-default">
+                        <span>Upload file</span>
+                        <input type="file" name="file" class="upload" id="input-with-file"><br>
+                    </div>
                 </form>
             </div>
 
