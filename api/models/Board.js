@@ -26,6 +26,9 @@ module.exports = {
     acces: {
       type: 'string',
       required: true
+    },
+    team: {
+      collection: 'member'
     }
   }
 };

@@ -1,0 +1,13 @@
+<div class="modal fade" id="editAcces" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <form action="/member/update<%= member.id %>" class="add-member" data-list-id="<%= member.id %>" method="POST">
+          <input class="form-control" id="name"  style="width: 100%;" type="text" />
+          <input class="form-control" id="title" style="width: 100%;" type="text" />
+          <input class="form-control" id="title" style="width: 100%;" type="text" />
+          <button class="close delete-list" type="submit">ADD</button>
+          <input name="_csrf" type="hidden" value="<%= _csrf %>">
+      </form>
+    </div>
+  </div>
+</div>
