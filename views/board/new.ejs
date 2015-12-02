@@ -26,6 +26,7 @@
           <input class="form-control" name="name" placeholder="Like 'Programowanie aplikacji webowych' for example..." type="text">
           <input class="form-control" name="_csrf" type="hidden" value="<%= _csrf %>">
           <input class="form-control" name="owner" type="hidden" value="<%= session.User.id %>">
+          <input class="form-control" name="acces" type="hidden" value="<%= "Public" %>">
           <button class="btn green" type="submit">Create</button>
         </div>
       </div>

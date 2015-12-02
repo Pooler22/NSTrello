@@ -5,6 +5,10 @@
       <h2 class="board-title board-name" data-target="#editName" data-toggle="modal">
         <%= board.name %>
       </h2>
+      <h2 class="board-title board-name" data-target="#editAcces" data-toggle="modal">
+        <%= board.acces %>
+      </h2>
+      <% include acces.ejs %>
       <% include destroy.ejs %>
       <% include edit.ejs %>
     </div>

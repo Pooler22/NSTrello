@@ -22,6 +22,10 @@ module.exports = {
     activities: {
       collection: 'activity',
       via: 'owner'
+    },
+    acces: {
+      type: 'string',
+      required: true
     }
   }
 };

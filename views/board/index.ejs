@@ -7,7 +7,7 @@
       </div>
       <div class="row boards">
         <% _.each(boards, function (board) { %>
-          <% if(board.owner == session.User.id ){%>
+        <% if(board.owner == session.User.id || board.acces == "Public"){%>
             <div class="board col-md-3">
               <a href="/board/show/<%= board.id %>">
                 <span>
