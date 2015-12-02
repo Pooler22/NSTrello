@@ -24,8 +24,7 @@ module.exports = {
       via: 'owner'
     },
     acces: {
-      type: 'string',
-      required: true
+      type: 'string'
     },
     team: {
       collection: 'member'

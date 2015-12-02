@@ -123,6 +123,5 @@ nbproject
 # Asset dependencies
 #
 ################################################
-
+/assets/**/dependencies/
 materialy
-
