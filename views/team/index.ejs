@@ -3,15 +3,15 @@
     <div class="col-md-11 col-centered">
       <div class="row page-title">
         <i class="fa fa-user"></i>
-        <h2>My boards</h2>
+        <h2>My team</h2>
       </div>
       <div class="row boards">
-        <% _.each(boards, function (board) { %>
-          <% if(board.owner == session.User.id || board.acces == "Public"){%>
+        <% _.each(teams, function (team) { %>
+          <% if(team.owner == session.User.id){%>
             <div class="board col-md-3">
-              <a href="/board/show/<%= board.id %>">
+              <a href="/team/show/<%= team.id %>">
                 <span>
-                  <%= board.name %>
+                  <%= team.name %>
                 </span>
               </a>
             </div>
