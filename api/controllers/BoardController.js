@@ -52,13 +52,20 @@ module.exports = {
                 // })
                 .exec(function foundComments(err, comments) {
                   if (err) return next(err);
-                  
-                  res.view({
-                    board: board,
-                    lists: lists,
-                    cards: cards,
-                    comments: comments
-                  });
+                  Member.find()
+                     .where({
+                       owner: req.params.id
+                     })
+                    .exec(function foundComments(err, members) {
+                      if (err) return next(err);
+                      res.view({
+                        board: board,
+                        lists: lists,
+                        cards: cards,
+                        comments: comments,
+                        members: members
+                      });
+                    });
                 });
             });
         });

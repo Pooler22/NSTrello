@@ -1,13 +1,13 @@
 <div class="board col-md-3 add-new">
   <a class="add-board">
-    <span>Create new board...</span>
+    <span>Create new team...</span>
   </a>
   <div class="new-board">
     <div class="new-board-title">
-      <span>Create Board</span>
+      <span>Create team</span>
       <button class="close" data-dismiss="modal" type="button">×</button>
     </div>
-    <form action="/board/create" class="form-create-board" class="navbar-form navbar-left" method="POST">
+    <form action="/team/create" class="form-create-board" class="navbar-form navbar-left" method="POST">
       <div class="form-group">
         <% if(flash && flash.err) { %>
           <ul class="allert allert-success">

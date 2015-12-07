@@ -5,11 +5,19 @@
       <h2 class="board-title board-name" data-target="#editName" data-toggle="modal">
         <%= board.name %>
       </h2>
+      <h2 class="board-title board-name" data-target="#editAcces" data-toggle="modal">
+        <%= board.acces %>
+      </h2>
+      <% include acces.ejs %>
+      <h2 class="board-title board-name" data-target="#editMember" data-toggle="modal">
+        MEMBERS
+      </h2>
+
       <% include destroy.ejs %>
       <% include edit.ejs %>
     </div>
   </div>
-
+  <% include ../member/index.ejs %>
   <% include ../list/index.ejs %>
 
   <div class="custom-scroll lists-scroll" data-scroll="#lists">

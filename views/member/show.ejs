@@ -1,0 +1,16 @@
+<div class="col-md-12 blue-bg" id="board-view">
+    <div class="col-md-12 col-centered" style="padding: 0;">
+        <div class="row page-title white">
+            Name:  <%= member.name %>
+            Title: <%= member.title %>
+            Email: <%= member.email %>
+            <% include destroy.ejs %>
+            <% include edit.ejs %>
+        </div>
+    </div>
+
+
+    <div class="custom-scroll lists-scroll" data-scroll="#lists">
+        <div class="custom-scroll-bar" style="width: 0%"></div>
+    </div>
+</div>

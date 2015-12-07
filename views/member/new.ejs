@@ -1,0 +1,8 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add Members</h4>
+</div>
+<form action="/member/update/member.id" class="add-member" data-list-id="member.id" method="POST">
+  <input class="form-control" placeholder="email/login" style="width: 100%;" type="text"/>
+  <button class="btn green" type="submit">ADD</button>
+  <input name="_csrf" type="hidden" value="<%= _csrf %>">
+</form>

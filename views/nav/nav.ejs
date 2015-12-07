@@ -1,15 +1,21 @@
 <header>
-
-  <div class="pull-left boards-link">
-    <% if (session.authenticated) { %>
+  <% if (session.authenticated) { %>
+    <div class="pull-left boards-link" style="position: relative;">
       <a href="/board">
         <i class="fa fa-trello"></i>
         <span>Boards</span>
       </a>
-    <% } %>
-
-    <% if (!session.authenticated) {
-        ///user/new %>
+    </div>
+    <div class="pull-left boards-link" style="position: relative;">
+      <a href="/team">
+        <i class="fa fa-folder"></i>
+        <span>Teams</span>
+      </a>
+    </div>
+  <% } %>
+<div class="pull-left boards-link" >
+  <% if (!session.authenticated) {
+    ///user/new %>
     <a data-target="#register" data-toggle="modal" href="#">
       <i class="fa fa-sign-in"></i>
       <span>Sign Up</span>

@@ -1,0 +1,12 @@
+<div class="list-header list-header non-empty u-clearfix editable flex-title">
+  <i class="fa fa-arrow-circle-o-down dropdown-list list-editable-icon">
+    <ul class="dropdown">
+        <form action="/member/destroy/<%= member.id %>" class="delete-list" data-list-id="<%= member.id %>" method="POST">
+          <input name="_method" type="hidden" value="delete">
+          <button class="close delete-list" type="submit">Delete</button>
+          <input name="_csrf" type="hidden" value="<%= _csrf %>">
+        </form>
+      </li>
+    </ul>
+  </i>
+</div>
