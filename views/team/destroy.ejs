@@ -1,0 +1,7 @@
+<div style="margin-top: 5px; ">
+  <form action="/team/destroy/<%= team.id %>" method="POST">
+    <input name="_method" type="hidden" value="delete">
+    <button class="close delete-board" type="submit">×</button>
+    <input name="_csrf" type="hidden" value="<%= _csrf %>">
+  </form>
+</div>

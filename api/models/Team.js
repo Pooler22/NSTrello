@@ -23,7 +23,7 @@ module.exports = {
       type: 'string'
     },
     members:{
-      type: 'string'
+      collection: 'member'
     },
     owner: {
       model: 'user'

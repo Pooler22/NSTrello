@@ -2,14 +2,13 @@
     <div class="col-md-12 col-centered" style="padding: 0;">
         <div class="row page-title white">
             Name:  <%= member.name %>
+            ID:    <%= member.id %>
             Title: <%= member.title %>
             Email: <%= member.email %>
-            <% include destroy.ejs %>
-            <% include edit.ejs %>
+            owner: <%= member.owner %>
         </div>
     </div>
-
-
+    <% include destroy.ejs %>
     <div class="custom-scroll lists-scroll" data-scroll="#lists">
         <div class="custom-scroll-bar" style="width: 0%"></div>
     </div>

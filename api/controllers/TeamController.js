@@ -16,12 +16,31 @@ module.exports = {
         req.session.flash = {
           err: err
         };
+          return res.redirect('/team/index/');
       }
-      return res.json({
+        return res.redirect('/team/index/');
+    /*  return res.json({
         result: true
-      });
+      });*/
     });
   },
+    show: function (req, res, next) {
+        Team.findOne(req.params.id, function foundTeam(err, team) {
+            if (err) return next(err);
+            if (!team) return next();
+            Member.find()
+                .where({
+                    owner: req.params.id
+                })
+                .exec(function foundMember(err, members) {
+                    if (err) return next(err);
+                    res.view({
+                        members: members,
+                        team: team
+                    });
+                });
+        });
+    },
 
   index: function(req, res, next) {
     Team.find(function foundTeams(err, teams) {
@@ -68,9 +87,10 @@ module.exports = {
       Team.destroy(req.param('id'), function teamDestroyed(err) {
         if (err) return next(err);
         if (!team) return res.notFound();
-        return res.json({
+          return res.redirect('/team/index/');
+       /* return res.json({
           result: true
-        });
+        });*/
       });
     });
   }

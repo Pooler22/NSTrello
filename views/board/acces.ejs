@@ -11,17 +11,19 @@
           <form action="/board/update/<%= board.id %>" id="acces-board" method="POST">
             <input name='acces' type='hidden' value='Private'>
             <button class="btn green" data-url="" type="submit">Private</button>
+            <input name='team' type='hidden' placeholder=''>
           </form>
 
           <form action="/board/update/<%= board.id %>" id="acces-board" method="POST">
             <input name='acces' type='hidden' value='Public'>
             <button class="btn green" data-url="" type="submit">Public</button>
+            <input name='team' type='hidden' placeholder=''>
           </form>
 
           <form action="/board/update/<%= board.id %>" id="acces-board" method="POST">
             <input name='acces' type='hidden' value='Team'>
             <button class="btn green" data-url="" type="submit">Team</button>
-            <input name='team'  placeholder='team name'>
+            <input name='team'  placeholder=<%= board.team %>>
           </form>
 
           <div class="modal-footer">

@@ -19,7 +19,7 @@ module.exports = {
     comments: {
       collection: 'comment',
       via: 'owner'
-    }
+    },
 
   }
 };

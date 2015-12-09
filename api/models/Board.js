@@ -27,7 +27,7 @@ module.exports = {
       type: 'string'
     },
     team: {
-      collection: 'member'
+      type: 'string'
     }
   }
 };

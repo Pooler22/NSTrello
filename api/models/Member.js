@@ -12,14 +12,15 @@ module.exports = {
             type: 'string',
             required: true
         },
+        owner: {
+            model: 'team',
+            required: true
+        },
         title: {
             type: 'string'
         },
         email: {
             type: 'string',
-            email: {},
-            required: true,
-            unique: true
         }
     }
 };
