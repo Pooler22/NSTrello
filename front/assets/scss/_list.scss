@@ -1,5 +1,5 @@
-#lists-main-view { min-height: 300px; overflow: hidden;
-  #lists { overflow: hidden;
+#lists-main-view { min-height: 300px; /*overflow: hidden;*/
+  #lists { /*overflow: hidden;*/
     .list { width: 270px; background: #e2e4e6;  border-radius: 4px; box-sizing: border-box; max-height: 100%; padding: 8px 10px; position: relative; display: inline-block; vertical-align: top;
       margin-right: 6px;
       &.add-list { background: rgba(0,0,0,.12); }
@@ -50,6 +50,14 @@
       }
       .list-editable-icon {
         max-width: 20px; text-align: right;
+      }
+      &.ui-draggable-dragging {
+        -ms-transform: rotate(7deg); /* IE 9 */
+        -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+        transform: rotate(7deg);
+        -webkit-box-shadow: 0px 0px 24px 1px rgba(0,0,0,0.36);
+        -moz-box-shadow: 0px 0px 24px 1px rgba(0,0,0,0.36);
+        box-shadow: 0px 0px 24px 1px rgba(0,0,0,0.36);
       }
     }
     .card-list {

@@ -230,6 +230,7 @@ $(document)
               textarea.val("")
                 .focus();
 
+                console.log($('[data-list-id="' + owner + '"] .card-list ul'));
             } else {
               console.log(data);
             }

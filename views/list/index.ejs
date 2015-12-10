@@ -31,6 +31,46 @@
                          });
                          }*/
                     }).disableSelection();
+                    var lists = null;
+                    var drager = null;
+                    $('.list-wrapper').draggable({
+                        axis: 'x',
+                        start: function(event, ui) {
+                            drager = $(this);
+                            drager.css ({
+                                'z-index': 1000
+                            });
+                            lists = [];
+                            $('.list-wrapper').each(function(key){
+                                lists[key] = $(this);
+                            });
+                        },
+                        stop: function( event, ui ) {
+                            drager.css ({
+                                'z-index': ''
+                            });
+                            var stopLeft = drager.position().left;
+                            $('.list-wrapper').each(function(key){
+                                if(stopLeft >= lists[key].position().left) {
+                                    drager.insertAfter(lists[parseInt(key)]);
+                                }
+                                if(stopLeft < 0) {
+                                    drager.insertBefore(lists[parseInt(0)]);
+                                }
+                            });
+                            drager.css ({
+                                'left': 0
+                            });
+                            drager = null;
+                        },
+                        drag: function( event, ui ) {
+                            if(drager.position().left < $('#lists-content').position().left){
+                                drager.css ({
+                                    'left': 0
+                                });
+                            }
+                        }
+                    });
                 });
             </script>
             <% _.each(lists, function (list) { %>
