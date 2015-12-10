@@ -203,12 +203,14 @@ $(document)
           .children('.cu-clearfix')
           .children('.list-id')
           .attr('value');
+            var order = $('[data-list-id="' + owner + '"] .card').length;
         $.ajax({
           type: "POST",
           url: url,
           data: {
             header: textarea.val(),
-            owner: owner
+            owner: owner,
+              n: order
           },
           success: function (data) {
             if (data.result === true) {
@@ -220,7 +222,7 @@ $(document)
                     }
                 });
               $('[data-list-id="' + owner + '"] .card-list ul')
-                .append('<div class="card open-card-details" data-toggle="modal" data-title="'+header+'" data-target="#card-details" data-card-id="'+(parseInt(tmpId)+1)+'" data-owner="'+owner+'">' +
+                .append('<div class="card-added-dynamicly card open-card-details" data-toggle="modal" data-title="'+header+'" data-target="#card-details" data-order="'+order+'" data-card-id="'+(parseInt(tmpId)+1)+'" data-owner="'+owner+'">' +
                   '<input type="hidden" name="owner" value="'+owner+'">' +
                   '<div class="card-title" data-name-by-card-id="'+(parseInt(tmpId)+1)+'">' + header + '</div>' +
                   '</div>');
