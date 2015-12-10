@@ -22,6 +22,14 @@
           <div class="card-details-feed">
             <input type="hidden" id="modal-owner" name="owner">
             <div>
+                <div id="checklist" style="display: none; margin-bottom: 80px; clear: both;">
+                    <h4 class="modal-title">New checklist</h4>
+                    <textarea class="form-control textarea" style="min-height: 0; height: 35px; margin-top: 5px;" placeholder="Checklist name"></textarea>
+                    <div id="checklist-tiems"></div>
+                    <button class="btn green" type="submit" style="float: left;">Add</button>
+                    <button class="btn btn-default add-item-to-checklist" style="float: right; margin-top: 10px;">Add item</button>
+                </div>
+                <h4 class="modal-title" style="clear: both;">Comments</h4>
                 <div id="comments-list"></div>
                 <div style="padding: 5px; text-align: center; display: none;" id="loader-gif">
                     <div style="display: inline-block; background: #fff; padding: 4px; border-radius: 6px;"><img src="/images/ajax-loader.gif"/></div>
@@ -45,6 +53,7 @@
             <span>Actions</span>
             <ul>
                 <li class="" data-delate-card-by-id data-dismiss="modal">Delete</li>
+                <li class="" id="add-checklist">Add Checklist</li>
             </ul>
           </div>
         </div>
