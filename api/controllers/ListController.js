@@ -57,9 +57,10 @@ module.exports = {
       List.destroy(req.param('id'), function listDestroyed(err) {
         if (err) return next(err);
         if (!list) return res.notFound();
-        return res.json({
+        /*return res.json({
           result: true
-        });
+        });*/
+        return res.redirect('/board/show/' + list.owner);
       });
     });
   }

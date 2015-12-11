@@ -1,0 +1,16 @@
+<div class="col-md-12 blue-bg" id="board-view">
+    <div class="col-md-12 col-centered" style="padding: 0;">
+        <div class="row page-title white">
+            <h2 class="board-title board-name"  data-toggle="modal">
+                <%= team.name %>
+            </h2>
+            <% include destroy.ejs %>
+            <% include ../member/new.ejs %>
+
+        </div>
+    </div>
+    <% include ../member/index.ejs %>
+    <div class="custom-scroll lists-scroll" data-scroll="#members">
+        <div class="custom-scroll-bar" style="width: 0%"></div>
+    </div>
+</div>

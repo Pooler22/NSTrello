@@ -52,19 +52,11 @@ module.exports = {
                 // })
                 .exec(function foundComments(err, comments) {
                   if (err) return next(err);
-                  Member.find()
-                     .where({
-                       owner: req.params.id
-                     })
-                    .exec(function foundComments(err, members) {
-                      if (err) return next(err);
                       res.view({
                         board: board,
                         lists: lists,
                         cards: cards,
                         comments: comments,
-                        members: members
-                      });
                     });
                 });
             });
@@ -107,12 +99,35 @@ module.exports = {
   },
 
   update: function (req, res, next) {
-    Board.update(req.params.id, req.params.all(), function updateBoard(err) {
-      if (err) {
-        return res.redirect('/board/edit/' + req.param('id'));
-      }
-      res.redirect('/board/show/' + req.param('id'));
-    });
+    var requestParams = req.params.all();
+
+      console.log(requestParams['team']);
+
+    if(requestParams['acces'] == 'Team') {
+      Team.find().where({
+        name: requestParams['team']
+      }).exec(function foundComments(err, teams) {
+            if (err) return next(err);
+            if (teams.length == 0) {
+              requestParams.acces = 'Public';
+              requestParams.team = '';
+            }
+              Board.update(req.params.id, requestParams, function updateBoard(err) {
+                if (err) {
+                  return res.redirect('/board/edit/' + req.param('id'));
+                }
+              });
+          }
+      );
+    }else{
+      console.log(requestParams);
+      Board.update(req.params.id, requestParams, function updateBoard(err) {
+        if (err) {
+          return res.redirect('/board/edit/' + req.param('id'));
+        }
+      });
+    }
+    res.redirect('/board/show/' + req.param('id'));
   },
 
   destroy: function (req, res, next) {

@@ -21,24 +21,81 @@ $(document)
         $('#form-create-comment textarea').val('');
         $('#comments-list').html("");
 
-        $.ajax({
-            type: "POST",
-            url: '/comment/show/'+$(this).data('card-id'),
-            data: {
-                cos: 'cos'
-            },
-            success: function(data) {
-                $.each(data.result, function(i, row) {
-                    $('#comments-list').append('<div class="comment">'+this.comment+'' +
-                    '<p>'+this.author+'</p>' +
-                    '<span>'+this.updatedAt+'</span>' +
-                    '</div>');
-                });
-            },
-            error: function(result) {
-                console.log(data);
-            }
-        });
+        setTimeout(function(){
+            $.ajax({
+                type: "POST",
+                url: '/comment/show/'+$('#card-details-id').val(),
+                data: {
+
+                },
+                success: function(data) {
+                    $.each(data.result, function(i, row) {
+                        console.log(this);
+
+                        if(this.type && this.type == 'image') {
+                            console.log('mamy obrazek');
+                            $('#form-create-comment textarea').val('');
+                            $('#comments-list').append('<div class="comment">' +
+                            '<a href="'+this.comment+'" target="_blank"><img src="'+this.comment+'" style="max-width: 400px; max-height: 600px;"></a>' +
+                            '<p>'+this.author+'</p>' +
+                            '<span>'+this.updatedAt+'</span>' +
+                            '</div>');
+
+                            /*if(pdf.indexOf(ext) > -1){
+                             $('#form-create-comment textarea').val('');
+                             $('#comments-list').append('<div class="comment">' +
+                             '<a href="' +e.target.result+'" style="display: block; text-align: center;" target="_blank">'+
+                             '<img src="/images/pdf-icon.png" style="max-height: 64px;">' +
+                             '</a>' +
+                             '<p>'+$('#author-name').val()+'</p>' +
+                             '<span>Przed chwilą</span>' +
+                             '</div>');
+                             }
+                             if(word.indexOf(ext) > -1){
+                             console.log('mamy worda');
+                             $('#comments-list').append('<div class="comment">' +
+                             '<a href="' +e.target.result+'" style="display: block; text-align: center;" target="_blank">'+
+                             '<img src="/images/word.png" style="max-height: 64px;">' +
+                             '</a>' +
+                             '<p>'+$('#author-name').val()+'</p>' +
+                             '<span>Przed chwilą</span>' +
+                             '</div>');
+                             }*/
+                        }
+                        else if(this.type && this.type == 'pdf') {
+                            $('#form-create-comment textarea').val('');
+                            $('#comments-list').append('<div class="comment">' +
+                            '<a href="'+this.comment+'" style="display: block; text-align: center;" target="_blank">'+
+                            '<img src="/images/pdf-icon.png" style="max-height: 64px;">' +
+                            '</a>' +
+                            '<p>'+this.author+'</p>' +
+                            '<span>'+this.updatedAt+'</span>' +
+                            '</div>');
+                        }
+                        else if(this.type && this.type == 'doc') {
+                            $('#form-create-comment textarea').val('');
+                            $('#comments-list').append('<div class="comment">' +
+                            '<a href="'+this.comment+'" style="display: block; text-align: center;" target="_blank">'+
+                            '<img src="/images/word.png" style="max-height: 64px;">' +
+                            '</a>' +
+                            '<p>'+this.author+'</p>' +
+                            '<span>'+this.updatedAt+'</span>' +
+                            '</div>');
+                        }
+                        else {
+                            $('#comments-list').append('<div class="comment">'+this.comment+'' +
+                            '<p>'+this.author+'</p>' +
+                            '<span>'+this.updatedAt+'</span>' +
+                            '</div>');
+                        }
+
+                    });
+                },
+                error: function(result) {
+                    console.log(data);
+                }
+            });
+        }, 10)
       });
 
     $('#change-card-name-form').submit(function (e) {
@@ -146,12 +203,14 @@ $(document)
           .children('.cu-clearfix')
           .children('.list-id')
           .attr('value');
+            var order = $('[data-list-id="' + owner + '"] .card').length;
         $.ajax({
           type: "POST",
           url: url,
           data: {
             header: textarea.val(),
-            owner: owner
+            owner: owner,
+              n: order
           },
           success: function (data) {
             if (data.result === true) {
@@ -163,7 +222,7 @@ $(document)
                     }
                 });
               $('[data-list-id="' + owner + '"] .card-list ul')
-                .append('<div class="card open-card-details" data-toggle="modal" data-title="'+header+'" data-target="#card-details" data-card-id="'+(parseInt(tmpId)+1)+'">' +
+                .append('<div class="card-added-dynamicly card open-card-details" data-toggle="modal" data-title="'+header+'" data-target="#card-details" data-order="'+order+'" data-card-id="'+(parseInt(tmpId)+1)+'" data-owner="'+owner+'">' +
                   '<input type="hidden" name="owner" value="'+owner+'">' +
                   '<div class="card-title" data-name-by-card-id="'+(parseInt(tmpId)+1)+'">' + header + '</div>' +
                   '</div>');
@@ -171,6 +230,7 @@ $(document)
               textarea.val("")
                 .focus();
 
+                console.log($('[data-list-id="' + owner + '"] .card-list ul'));
             } else {
               console.log(data);
             }

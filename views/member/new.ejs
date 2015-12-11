@@ -1,8 +1,10 @@
-<div class="modal-header">
-  <h4 class="modal-title">Add Members</h4>
+<div class="member add-member">
+  <form action="/member/create" method="POST" >
+    <!-- id="add-member" -->
+    <input type="text" class=" form-control" placeholder="Add a name..." name="name">
+    <input type="text" class=" form-control" placeholder="Add a title..." name="title">
+    <input type="text" class=" form-control" placeholder="Add a email..." name="email">
+    <input type="hidden" class="team-id form-control" name="owner" value="<%= team.id %>">
+    <button type="submit" class="btn green">Add a member</button>
+  </form>
 </div>
-<form action="/member/update/member.id" class="add-member" data-list-id="member.id" method="POST">
-  <input class="form-control" placeholder="email/login" style="width: 100%;" type="text"/>
-  <button class="btn green" type="submit">ADD</button>
-  <input name="_csrf" type="hidden" value="<%= _csrf %>">
-</form>

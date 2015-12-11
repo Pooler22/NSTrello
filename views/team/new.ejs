@@ -7,7 +7,7 @@
       <span>Create team</span>
       <button class="close" data-dismiss="modal" type="button">×</button>
     </div>
-    <form action="/team/create" class="form-create-board" class="navbar-form navbar-left" method="POST">
+    <form action="/team/create" class="navbar-form navbar-left" method="POST">
       <div class="form-group">
         <% if(flash && flash.err) { %>
           <ul class="allert allert-success">
@@ -23,10 +23,8 @@
           <div>
             <label>Title</label>
           </div>
-          <input class="form-control" name="name" placeholder="Like 'Programowanie aplikacji webowych' for example..." type="text">
-          <input class="form-control" name="_csrf" type="hidden" value="<%= _csrf %>">
+          <input class="form-control" name="name" placeholder="Like ..." type="text">
           <input class="form-control" name="owner" type="hidden" value="<%= session.User.id %>">
-          <input class="form-control" name="acces" type="hidden" value="<%= "Public" %>">
           <button class="btn green" type="submit">Create</button>
         </div>
       </div>
