@@ -1,8 +1,18 @@
 $(document)
-  .ready(function () {
+  .ready(function() {
+
+    $(document).on('click', '.open-list-details', function() {
+      console.log("dzialam");
+      console.log($(this).data('list-id'));
+      console.log($(this).data('owner'));
+
+      $('#new-name').val($(this).data('list-name'));
+      $('#list-id').val($(this).data('list-id'));
+      $('#board-id').val($(this).data('owner'));
+    });
 
     $('.dropdown-list')
-      .click(function () {
+      .click(function() {
         $('.dropdown-list')
           .removeClass('open');
         $(this)
@@ -10,7 +20,7 @@ $(document)
       });
 
     $(document)
-      .mouseup(function (e) {
+      .mouseup(function(e) {
         var container = $('.dropdown-list');
 
         if (!container.is(e.target) && container.has(e.target)
@@ -24,36 +34,50 @@ $(document)
       });
 
     $('.rename-list')
-      .click(function () {
+      .click(function() {
         $('#editListName' + $(this)
             .val())
           .modal('show');
       });
 
     $("#rename-list")
-      .submit(function (e) {
+      .submit(function(e) {
         console.log("0");
         var url = $(this)
           .attr('action'); // the script where you handle the form input.
-        var newName = $('#new-name-board')
+        var newName = $('#new-name')
+          .val();
+        var listId = $('#list-id')
+          .val();
+        var ownerList = $('#board-id')
           .val();
         console.log(newName);
+        console.log(listId);
+        console.log(ownerList);
         $.ajax({
           type: "POST",
-          url: url,
+          url: url + listId,
           data: {
+
             name: newName
           },
-          success: function (data) {
+          success: function(data) {
             if (data.result === true) {
-              $('.board-name')
+              $('.list-name')
                 .html(newName);
+              $('.open-list-details').each(function() {
+
+                if ($(this).attr("data-list-id") == listId) {
+                  console.log("test");
+                  $(this).html(newName);
+                }
+              });
+              console.log("1");
               $('#editName')
                 .modal('hide');
-              console.log("1");
             }
           },
-          error: function (result) {
+          error: function(result) {
             console.log(data);
             console.log("2");
           }
@@ -63,7 +87,7 @@ $(document)
       });
 
     $("#add-list")
-      .submit(function (e) {
+      .submit(function(e) {
 
         var url = $(this)
           .attr('action'); // the script where you handle the form input.
@@ -80,10 +104,10 @@ $(document)
             name: newName,
             boardId: boardId
           },
-          success: function (data) {
+          success: function(data) {
             console.log(data);
           },
-          error: function (result) {
+          error: function(result) {
             console.log(data);
           }
         });
@@ -92,7 +116,7 @@ $(document)
       });
 
     $(".delete-list")
-      .submit(function (e) {
+      .submit(function(e) {
 
         var url = $(this)
           .attr('action');
@@ -104,7 +128,7 @@ $(document)
           data: {
             name: null
           },
-          success: function (data) {
+          success: function(data) {
             if (data) {
               console.log(id);
               $('.list[data-list-id="' + id + '"]')
@@ -114,7 +138,7 @@ $(document)
                 .modal('show');
             }
           },
-          error: function (result) {
+          error: function(result) {
             console.log(data);
             $('#modal')
               .modal('show');

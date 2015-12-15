@@ -10,9 +10,11 @@
   <i class="fa fa-arrow-circle-o-down dropdown-list list-editable-icon">
     <ul class="dropdown">
       <li class="rename-list" value="<%= list.id %>">
-        <a href="#" id="modal-id" value="<%= list.id %>"></a>
+
+      <div class="card open-list-details" data-list-id="<%= list.id %>" data-owner="<%= list.owner %>" data-list-name="<%= list.name %>"
+         data-target="#editListName" data-toggle="modal">
         Rename
-      </a>
+      </div>
     </li>
   </ul>
 </i>
