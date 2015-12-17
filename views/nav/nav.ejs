@@ -3,13 +3,13 @@
     <div class="pull-left boards-link" style="position: relative;">
       <a href="/board">
         <i class="fa fa-trello"></i>
-        <span>Boards</span>
+        <span><%= __('Boards') %></span>
       </a>
     </div>
     <div class="pull-left boards-link" style="position: relative;">
       <a href="/team">
         <i class="fa fa-folder"></i>
-        <span>Teams</span>
+        <span><%= __('Teams') %></span>
       </a>
     </div>
   <% } %>
@@ -81,7 +81,7 @@
           <%= session.User.name %>
         </a>
       </li>
-      <a class="btn btn-default navbar-btn logout" href="/session/destroy">Sign-out</a>
+      <a class="btn btn-default navbar-btn logout" href="/session/destroy"><%= __('Sign-out') %></a>
     <% } %>
     <% if (session.authenticated && session.User.admin) { %>
       <li>
