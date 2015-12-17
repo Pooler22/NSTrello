@@ -1,0 +1,11 @@
+.personalization{ overflow: hidden;
+  position: absolute; right: 0; bottom: 0; background: #fff; padding: 10px 20px; border-top-right-radius: 10px; border-top-left-radius: 10px;
+  .personalization-board { text-align: center; cursor: pointer;
+    .box { text-align: left; overflow: hidden; height: 0; transition: all .3s; }
+  }
+  &.open {
+    .personalization-board {
+      .box { height: 100px; transition: all .3s; }
+    }
+  }
+}

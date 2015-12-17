@@ -1989,7 +1989,10 @@ header {
         background: #026aa7; }
 
 .blue-bg {
-  background: #0079bf; }
+  background-color: #0079bf;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
 
 .btn.green {
   border: 0;
@@ -2416,5 +2419,26 @@ header {
 .noselect ::-moz-selection {
   background: transparent;
   /* Gecko Browsers */ }
+
+.personalization {
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  padding: 10px 20px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px; }
+  .personalization .personalization-board {
+    text-align: center;
+    cursor: pointer; }
+    .personalization .personalization-board .box {
+      text-align: left;
+      overflow: hidden;
+      height: 0;
+      transition: all .3s; }
+  .personalization.open .personalization-board .box {
+    height: 100px;
+    transition: all .3s; }
 
 /*# sourceMappingURL=style.css.map */
