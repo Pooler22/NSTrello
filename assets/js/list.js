@@ -63,17 +63,10 @@ $(document)
           },
           success: function(data) {
             if (data.result === true) {
-              $('.list-name')
-                .html(newName);
-              $('.open-list-details').each(function() {
 
-                if ($(this).attr("data-list-id") == listId) {
-                  console.log("test");
-                  $(this).html(newName);
-                }
-              });
+              $('[data-list-id="'+listId+'"] .list-header .list-name').html(newName);
               console.log("1");
-              $('#editName')
+              $('#editListName')
                 .modal('hide');
             }
           },
