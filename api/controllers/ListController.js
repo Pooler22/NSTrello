@@ -41,11 +41,20 @@ module.exports = {
   },
 
   update: function (req, res, next) {
-    List.update(req.params.id, req.params.all(), function updateBoard(err) {
-      if (err) next(err);
-      return res.json({
-        result: true
-      });
+    List.findOne(req.param('id'), function foundList(err, list) {
+        if (err) return next(err);
+        if (!list) return res.notFound();
+        console.log(list);
+        List.update(req.params.id, req.params.all(), function updateList(err) {
+            if (err) {
+                return res.json({
+                    result: false
+                });
+            }
+            return res.json({
+                result: true
+            });
+        });
     });
   },
 

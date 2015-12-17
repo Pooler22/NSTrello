@@ -12,7 +12,7 @@
     }
   }
 }
-.blue-bg { background: #0079bf; }
+.blue-bg { background-color: #0079bf; background-size: cover; background-position: center; background-repeat: no-repeat; }
 .btn {
   &.green { border: 0; font-weight: 700; line-height: 22px; margin: 8px 4px 0 0; padding: 7px 20px;
     background: -webkit-linear-gradient(top,#61bd4f 0,#5aac44 100%);

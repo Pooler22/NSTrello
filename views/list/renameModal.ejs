@@ -1,4 +1,4 @@
-<div class="modal fade" id="editListName<%= list.id %>" role="dialog">
+<div class="modal fade" id="editListName" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,17 +7,17 @@
       </div>
       <div class="form-group">
         <div class="input-group" style="width: 100%;">
-          <form action="/list/update/<%= list.id %>/" id="rename-list" method="POST">
+          <form action="/list/update/" id="rename-list" method="POST">
 
             <div class="modal-body clearfix">
-              <input class="form-control" id="new-name" name="name" style="width: 100%;" type="text" value="<%= list.name %>">
-              <input class="form-control" id="board-id" name="owner" type="hidden" value="<%= board.id %>">
+              <input class="form-control" id="list-id" name="id" type="hidden">
+              <input class="form-control" id="new-name" name="name" style="width: 100%;" type="text" >
+              <input class="form-control" id="board-id" name="owner" type="hidden">
               <input name='_csrf' type='hidden' value='<%= _csrf %>'>
             </div>
 
             <div class="modal-footer">
-              <button class="btn green" data-dismiss="modal">Cancel</button>
-              <button class="btn green" data-url="" type="submit">Rename</button>
+              <button class="btn green" type="submit">Rename</button>
             </div>
 
           </form>

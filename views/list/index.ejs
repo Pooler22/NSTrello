@@ -73,6 +73,7 @@
                     });
                 });
             </script>
+
             <% _.each(lists, function (list) { %>
             <div class="list list-wrapper" data-list-id="<%= list.id %>">
                 <%- include edit.ejs %>
@@ -83,8 +84,10 @@
                 </div>
                 <%- include ../card/new.ejs %>
             </div>
-            <%- include renameModal.ejs %>
             <% }) %>
+
+            <%- include renameModal.ejs %>
+            
             <%- include ../card/show.ejs %>
             <%- include new.ejs %>
         </div>
